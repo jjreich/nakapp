@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Arrivaltypes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Arrivaltypes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @arrivaltypes.each do |arrivaltype| %>
+      <tr>
+        <td><%= arrivaltype.arrivalTypes %></td>
+        <td><%= link_to 'Show', arrivaltype %></td>
+        <td><%= link_to 'Edit', edit_arrivaltype_path(arrivaltype) %></td>
+        <td><%= link_to 'Destroy', arrivaltype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Arrivaltype', new_arrivaltype_path %>

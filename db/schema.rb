@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200905192625) do
+ActiveRecord::Schema.define(version: 20200905195417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 20200905192625) do
 
   create_table "airfields", force: :cascade do |t|
     t.string "icao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "arrivaltypes", force: :cascade do |t|
+    t.string "arrivalTypes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,6 +55,12 @@ ActiveRecord::Schema.define(version: 20200905192625) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_debriefs_on_user_id"
+  end
+
+  create_table "departuretypes", force: :cascade do |t|
+    t.string "departureTypes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "fboratings", force: :cascade do |t|

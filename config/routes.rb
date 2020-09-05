@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :departuretypes
+  resources :arrivaltypes
   resources :debriefs
   resources :fboratings
   resources :fbos
