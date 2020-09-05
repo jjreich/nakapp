@@ -14,7 +14,7 @@ class FboratingsController < ApplicationController
 
   # GET /fboratings/new
   def new
-    @fborating = Fborating.new
+    @fborating = Fborating.new(:fbo_id => params[:fbo_id])
   end
 
   # GET /fboratings/1/edit
@@ -69,6 +69,6 @@ class FboratingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def fborating_params
-      params.require(:fborating).permit(:ratingType, :fboStarRating, :fboComments)
+      params.require(:fborating).permit(:ratingType, :fboStarRating, :fboComments, :fbo_id)
     end
 end
