@@ -14,7 +14,7 @@ class FbosController < ApplicationController
 
   # GET /fbos/new
   def new
-    @fbo = Fbo.new
+    @fbo = Fbo.new(:airfield_id => params[:airfield_id])
   end
 
   # GET /fbos/1/edit
@@ -68,7 +68,8 @@ class FbosController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
+    # Never trust parameters from the scary internet, only allow the white list through.
     def fbo_params
-      params.require(:fbo).permit(:fboName)
+      params.require(:fbo).permit(:fboName, :airfield_id)
     end
 end

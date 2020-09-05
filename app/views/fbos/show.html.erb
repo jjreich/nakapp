@@ -5,5 +5,10 @@
   <%= @fbo.fboName %>
 </p>
 
+<p>
+  <strong>Airfield:</strong>
+  <%= Airfield.find(@fbo.airfield_id).icao %>
+</p>
+
 <%= link_to 'Edit', edit_fbo_path(@fbo) %> |
 <%= link_to 'Back', fbos_path %>

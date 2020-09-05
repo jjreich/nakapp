@@ -5,5 +5,7 @@
   <%= @airfield.icao %>
 </p>
 
+<%= link_to 'New FBO', new_fbo_path(:airfield_id => @airfield.id) %> | 
+
 <%= link_to 'Edit', edit_airfield_path(@airfield) %> |
 <%= link_to 'Back', airfields_path %>
