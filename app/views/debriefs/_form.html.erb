@@ -11,13 +11,13 @@
     <%= f.input :cateringRating %>
     <%= f.input :cateringComments %>
     <%= f.input :clientArrivalTiming %>
-    <%= f.input :clientArrivalType %>
+    <%= f.input :clientArrivalType, collection: @arrivaltypes, label_method: :arrivalTypes %>
     <%= f.input :clientArrivalComments %>
     <%= f.input :flightTurbulence %>
     <%= f.input :airborneFlightDelays %>
     <%= f.input :airborneFlightCheckins %>
     <%= f.input :flightComments %>
-    <%= f.input :clientDepartureType %>
+    <%= f.input :clientDepartureType, collection: @departuretypes, label_method: :departureTypes %>
     <%= f.input :clientDepartureComments %>
     <%= f.input :overallComments %>
   </div>

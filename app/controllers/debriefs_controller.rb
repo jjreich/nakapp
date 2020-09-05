@@ -15,6 +15,8 @@ class DebriefsController < ApplicationController
   # GET /debriefs/new
   def new
     @debrief = Debrief.new
+    @departuretypes = Departuretype.all
+    @arrivaltypes = Arrivaltype.all
   end
 
   # GET /debriefs/1/edit
