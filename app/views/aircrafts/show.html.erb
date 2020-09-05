@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tailnumber:</strong>
+  <%= @aircraft.tailNumber %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @aircraft.type %>
+</p>
+
+<%= link_to 'Edit', edit_aircraft_path(@aircraft) %> |
+<%= link_to 'Back', aircrafts_path %>

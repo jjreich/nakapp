@@ -1,0 +1,2 @@
+class Airfield < ApplicationRecord
+end

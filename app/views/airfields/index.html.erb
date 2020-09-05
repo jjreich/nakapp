@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Airfields</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Icao</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @airfields.each do |airfield| %>
+      <tr>
+        <td><%= airfield.icao %></td>
+        <td><%= link_to 'Show', airfield %></td>
+        <td><%= link_to 'Edit', edit_airfield_path(airfield) %></td>
+        <td><%= link_to 'Destroy', airfield, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Airfield', new_airfield_path %>
