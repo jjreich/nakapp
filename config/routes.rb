@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :airborneflightcheckins
+  resources :airborneflightdelays
   resources :departuretypes
   resources :arrivaltypes
   resources :debriefs

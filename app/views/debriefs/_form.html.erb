@@ -14,8 +14,8 @@
     <%= f.input :clientArrivalType, collection: @arrivaltypes, label_method: :arrivalTypes %>
     <%= f.input :clientArrivalComments %>
     <%= f.input :flightTurbulence %>
-    <%= f.input :airborneFlightDelays %>
-    <%= f.input :airborneFlightCheckins %>
+    <%= f.input :airborneFlightDelays, collection: @airborneflightdelays, label_method: :airborneFlightDelays %>
+    <%= f.input :airborneFlightCheckins, collection: @airborneflightcheckins, label_method: :airborneFlightCheckins  %>
     <%= f.input :flightComments %>
     <%= f.input :clientDepartureType, collection: @departuretypes, label_method: :departureTypes %>
     <%= f.input :clientDepartureComments %>

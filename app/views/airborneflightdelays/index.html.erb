@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Airborneflightdelays</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Airborneflightdelays</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @airborneflightdelays.each do |airborneflightdelay| %>
+      <tr>
+        <td><%= airborneflightdelay.airborneFlightDelays %></td>
+        <td><%= link_to 'Show', airborneflightdelay %></td>
+        <td><%= link_to 'Edit', edit_airborneflightdelay_path(airborneflightdelay) %></td>
+        <td><%= link_to 'Destroy', airborneflightdelay, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Airborneflightdelay', new_airborneflightdelay_path %>

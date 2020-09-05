@@ -1,0 +1,2 @@
+class Airborneflightcheckin < ApplicationRecord
+end
