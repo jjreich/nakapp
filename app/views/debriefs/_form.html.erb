@@ -4,22 +4,22 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :flightNumber %>
-    <%= f.input :preparationRating %>
-    <%= f.input :preparationComments %>
-    <%= f.input :cateringStatus %>
+    <%= f.input :flightNumber, label: 'Flight Number' %>
+    <%= f.input :preparationRating, label: 'Planning and Flight Preparation Rating' %>
+    <%= f.input :preparationComments, label: 'Planning and FLight Preparation Comments' %>
+    <%= f.input :cateringStatus, label: 'Check if there was Catering for Passengers' %>
     <%= f.input :cateringRating %>
     <%= f.input :cateringComments %>
-    <%= f.input :clientArrivalTiming %>
-    <%= f.input :clientArrivalType, collection: @arrivaltypes, label_method: :arrivalTypes %>
-    <%= f.input :clientArrivalComments %>
-    <%= f.input :flightTurbulence %>
-    <%= f.input :airborneFlightDelays, collection: @airborneflightdelays, label_method: :airborneFlightDelays %>
-    <%= f.input :airborneFlightCheckins, collection: @airborneflightcheckins, label_method: :airborneflightcheckins  %>
-    <%= f.input :flightComments %>
-    <%= f.input :clientDepartureType, collection: @departuretypes, label_method: :departureTypes %>
-    <%= f.input :clientDepartureComments %>
-    <%= f.input :overallComments %>
+    <%= f.input :clientArrivalTiming, label: 'Client Arrival Timing' %>
+    <%= f.input :clientArrivalType, collection: @arrivaltypes, label_method: :arrivalTypes, label: 'How did the Client Arrive?' %>
+    <%= f.input :clientArrivalComments, label: 'Client Arrival Comments' %>
+    <%= f.input :flightTurbulence, label: 'Select the best depiction of any turbulence you experienced during flight.' %>
+    <%= f.input :airborneFlightDelays, collection: @airborneflightdelays, label_method: :airborneFlightDelays, label: 'Select any type of airborne delays that caused the flight to last longer than expected.' %>
+    <%= f.input :airborneFlightCheckins, collection: @airborneflightcheckins, label_method: :airborneflightcheckins, label: 'Select how you checked in with the client airborne.'  %>
+    <%= f.input :flightComments, label: 'Flight Comments' %>
+    <%= f.input :clientDepartureType, collection: @departuretypes, label_method: :departureTypes, label: 'How did the client depart?' %>
+    <%= f.input :clientDepartureComments, label: 'Departure Comments' %>
+    <%= f.input :overallComments, label: 'Overall Comments' %>
   </div>
 
   <div class="form-actions">
