@@ -15,7 +15,7 @@
     <% @aircrafts.each do |aircraft| %>
       <tr>
         <td><%= aircraft.tailNumber %></td>
-        <td><%= aircraft.type %></td>
+        <td><%= aircraft.aircraftType %></td>
         <td><%= link_to 'Show', aircraft %></td>
         <td><%= link_to 'Edit', edit_aircraft_path(aircraft) %></td>
         <td><%= link_to 'Destroy', aircraft, method: :delete, data: { confirm: 'Are you sure?' } %></td>

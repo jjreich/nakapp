@@ -69,6 +69,6 @@ class AircraftsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def aircraft_params
-      params.require(:aircraft).permit(:tailNumber, :type)
+      params.require(:aircraft).permit(:tailNumber, :aircraftType)
     end
 end
