@@ -3,6 +3,8 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
+  <%= f.hidden_field :user_id %>
+
   <div class="form-inputs">
     <%= f.input :flightNumber, label: 'Flight Number' %>
     <%= f.input :preparationRating, label: 'Planning and Flight Preparation Rating' %>

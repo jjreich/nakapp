@@ -14,7 +14,11 @@ class DebriefsController < ApplicationController
 
   # GET /debriefs/new
   def new
-    @debrief = Debrief.new
+    if user_signed_in?
+      @debrief = Debrief.new(:user_id => current_user.id)
+    else 
+      @debrief = Debrief.new(:user_id => '0')
+    end
     @departuretypes = Departuretype.all
     @arrivaltypes = Arrivaltype.all
     @airborneflightdelays = Airborneflightdelay.all
@@ -73,6 +77,6 @@ class DebriefsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def debrief_params
-      params.require(:debrief).permit(:flightNumber, :preparationRating, :preparationComments, :cateringStatus, :cateringRating, :cateringComments, :clientArrivalTiming, :clientArrivalType, :clientArrivalComments, :flightTurbulence, :airborneFlightDelays, :airborneFlightCheckins, :flightComments, :clientDepartureType, :clientDepartureComments, :overallComments)
+      params.require(:debrief).permit(:flightNumber, :preparationRating, :preparationComments, :cateringStatus, :cateringRating, :cateringComments, :clientArrivalTiming, :clientArrivalType, :clientArrivalComments, :flightTurbulence, :airborneFlightDelays, :airborneFlightCheckins, :flightComments, :clientDepartureType, :clientDepartureComments, :overallComments, :user_id)
     end
 end
