@@ -37,6 +37,10 @@ gem 'simple_form'
 gem 'foundation-rails'
 gem 'autoprefixer-rails'
 
+gem 'devise'
+gem 'rolify'
+gem 'cancancan'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
