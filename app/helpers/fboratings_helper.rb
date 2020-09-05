@@ -1,0 +1,2 @@
+module FboratingsHelper
+end

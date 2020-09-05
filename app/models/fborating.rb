@@ -1,0 +1,2 @@
+class Fborating < ApplicationRecord
+end

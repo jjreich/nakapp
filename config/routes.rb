@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :fboratings
+  resources :fbos
   resources :aircrafts
   resources :airfields
   devise_for :users

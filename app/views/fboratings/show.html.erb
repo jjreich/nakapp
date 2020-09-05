@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ratingtype:</strong>
+  <%= @fborating.ratingType %>
+</p>
+
+<p>
+  <strong>Fbostarrating:</strong>
+  <%= @fborating.fboStarRating %>
+</p>
+
+<p>
+  <strong>Fbocomments:</strong>
+  <%= @fborating.fboComments %>
+</p>
+
+<%= link_to 'Edit', edit_fborating_path(@fborating) %> |
+<%= link_to 'Back', fboratings_path %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fboratings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ratingtype</th>
+      <th>Fbostarrating</th>
+      <th>Fbocomments</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fboratings.each do |fborating| %>
+      <tr>
+        <td><%= fborating.ratingType %></td>
+        <td><%= fborating.fboStarRating %></td>
+        <td><%= fborating.fboComments %></td>
+        <td><%= link_to 'Show', fborating %></td>
+        <td><%= link_to 'Edit', edit_fborating_path(fborating) %></td>
+        <td><%= link_to 'Destroy', fborating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fborating', new_fborating_path %>

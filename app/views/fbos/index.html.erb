@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fbos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fboname</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fbos.each do |fbo| %>
+      <tr>
+        <td><%= fbo.fboName %></td>
+        <td><%= link_to 'Show', fbo %></td>
+        <td><%= link_to 'Edit', edit_fbo_path(fbo) %></td>
+        <td><%= link_to 'Destroy', fbo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fbo', new_fbo_path %>
