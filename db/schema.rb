@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200905182435) do
+ActiveRecord::Schema.define(version: 20200905192625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,29 @@ ActiveRecord::Schema.define(version: 20200905182435) do
     t.string "icao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "debriefs", force: :cascade do |t|
+    t.string "flightNumber"
+    t.integer "preparationRating"
+    t.text "preparationComments"
+    t.boolean "cateringStatus"
+    t.integer "cateringRating"
+    t.text "cateringComments"
+    t.integer "clientArrivalTiming"
+    t.string "clientArrivalType"
+    t.text "clientArrivalComments"
+    t.string "flightTurbulence"
+    t.string "airborneFlightDelays"
+    t.string "airborneFlightCheckins"
+    t.text "flightComments"
+    t.string "clientDepartureType"
+    t.text "clientDepartureComments"
+    t.text "overallComments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_debriefs_on_user_id"
   end
 
   create_table "fboratings", force: :cascade do |t|

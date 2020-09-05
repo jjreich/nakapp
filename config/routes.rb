@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :debriefs
   resources :fboratings
   resources :fbos
   resources :aircrafts

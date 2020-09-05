@@ -1,0 +1,28 @@
+
+<%= simple_form_for(@debrief) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :flightNumber %>
+    <%= f.input :preparationRating %>
+    <%= f.input :preparationComments %>
+    <%= f.input :cateringStatus %>
+    <%= f.input :cateringRating %>
+    <%= f.input :cateringComments %>
+    <%= f.input :clientArrivalTiming %>
+    <%= f.input :clientArrivalType %>
+    <%= f.input :clientArrivalComments %>
+    <%= f.input :flightTurbulence %>
+    <%= f.input :airborneFlightDelays %>
+    <%= f.input :airborneFlightCheckins %>
+    <%= f.input :flightComments %>
+    <%= f.input :clientDepartureType %>
+    <%= f.input :clientDepartureComments %>
+    <%= f.input :overallComments %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

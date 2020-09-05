@@ -1,0 +1,2 @@
+json.extract! debrief, :id, :flightNumber, :preparationRating, :preparationComments, :cateringStatus, :cateringRating, :cateringComments, :clientArrivalTiming, :clientArrivalType, :clientArrivalComments, :flightTurbulence, :airborneFlightDelays, :airborneFlightCheckins, :flightComments, :clientDepartureType, :clientDepartureComments, :overallComments, :created_at, :updated_at
+json.url debrief_url(debrief, format: :json)
