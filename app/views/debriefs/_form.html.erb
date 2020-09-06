@@ -84,7 +84,19 @@
     <%= f.input :cateringComments, label: 'Comments' %>
 
     <h4>Client Arrival</h4>
-    <%= f.input :clientArrivalTiming, label: 'Client Arrival Timing' %>
+
+    <div class="grid-x grid-margin-x">
+      <div class="cell small-2">
+        <%= f.input :clientArrivalTiming, label: 'Client Arrival Timing' %>
+      </div>
+      <div class="cell small-10">
+        <div class="slider" data-slider data-initial-start="0" data-start="-60" data-end="60">
+          <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="debrief_clientArrivalTiming"></span>
+          <span class="slider-fill" data-slider-fill></span>
+        </div>
+      </div>
+    </div>
+
     <%= f.input :clientArrivalType, collection: @arrivaltypes, label_method: :arrivalTypes, label: 'How did the Client Arrive?' %>
     <%= f.input :clientArrivalComments, label: 'Client Arrival Comments' %>
 
@@ -118,4 +130,6 @@
       .parent().addClass('is-voted');
     $(ratingClass).val(ratingValue);
   });
+
+  $(function(){ $(document).foundation(); });
 </script>
