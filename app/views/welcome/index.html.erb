@@ -8,8 +8,7 @@
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
       <% if user_signed_in? %>
-        <li><%= current_user.email %></li>
-        <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
+        <li><%= link_to "Debriefs", debriefs_path, :class => "", remote: true %></li>
       <% else %>
         <li><%= link_to "Login", new_user_session_path %></li>
       <% end %>
@@ -17,10 +16,10 @@
   </div>
   <div class="top-bar-right">
     <% if user_signed_in? %>
-      <ul class="menu">
-        <li><input type="search" placeholder="Search"></li>
-        <li><button type="button" class="button">Search</button></li>
-      </ul>
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li><%= current_user.email %></li>
+      <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
+    </ul>
     <% end %>
   </div>
 </div>
@@ -32,3 +31,4 @@
   <% end %>
 
 </div>
+
