@@ -101,9 +101,9 @@
     <%= f.input :clientArrivalComments, label: 'Client Arrival Comments' %>
 
     <h4>Airborne Feedback</h4>
-    <%= f.input :flightTurbulence, label: 'Select the best depiction of any turbulence you experienced during flight.' %>
-    <%= f.input :airborneFlightDelays, collection: @airborneflightdelays, label_method: :airborneFlightDelays, label: 'Select any type of airborne delays that caused the flight to last longer than expected.' %>
-    <%= f.input :airborneFlightCheckins, collection: @airborneflightcheckins, label_method: :airborneflightcheckins, label: 'Select how you checked in with the client airborne.'  %>
+    <%= f.input :flightTurbulence, collection: @flightTurbulences, label_method: :turbulenceType, :selected => 1, label: 'Select the best depiction of any turbulence you experienced during flight.' %>
+    <%= f.input :airborneFlightDelays, collection: @airborneflightdelays, label_method: :airborneFlightDelays, :selected => 1, label: 'Select any type of airborne delays that caused the flight to last longer than expected.' %>
+    <%= f.input :airborneFlightCheckins, collection: @airborneflightcheckins, label_method: :airborneflightcheckins, :selected => 1, label: 'Select how you checked in with the client airborne.'  %>
     <%= f.input :flightComments, label: 'Flight Comments' %>
 
     <h4>Client Departure</h4>

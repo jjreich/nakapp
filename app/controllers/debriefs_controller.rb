@@ -23,6 +23,7 @@ class DebriefsController < ApplicationController
     @arrivaltypes = Arrivaltype.all
     @airborneflightdelays = Airborneflightdelay.all
     @airborneflightcheckins = Airborneflightcheckin.all
+    @flightTurbulences = FlightTurbulence.all
   end
 
   # GET /debriefs/1/edit

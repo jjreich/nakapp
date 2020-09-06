@@ -1,0 +1,2 @@
+module FlightTurbulencesHelper
+end

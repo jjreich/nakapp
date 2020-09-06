@@ -1,0 +1,2 @@
+class FlightTurbulence < ApplicationRecord
+end
