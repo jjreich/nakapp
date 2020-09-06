@@ -5,12 +5,75 @@
 
   <%= f.hidden_field :user_id %>
 
-  <div class="form-inputs">
+<div class="form-inputs">
     <%= f.input :flightNumber, label: 'Flight Number' %>
     <%= f.input :preparationRating, label: 'Planning and Flight Preparation Rating' %>
+
+
+    <div class="rating-block">
+      <div class="rating-block-rating" data-rating>
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
     <%= f.input :preparationComments, label: 'Planning and FLight Preparation Comments' %>
     <%= f.input :cateringStatus, label: 'Check if there was Catering for Passengers' %>
     <%= f.input :cateringRating %>
+
+    <div class="rating-block">
+      <div class="rating-block-rating" data-rating>
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+        <div class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
     <%= f.input :cateringComments %>
     <%= f.input :clientArrivalTiming, label: 'Client Arrival Timing' %>
     <%= f.input :clientArrivalType, collection: @arrivaltypes, label_method: :arrivalTypes, label: 'How did the Client Arrive?' %>
@@ -28,3 +91,14 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<script>
+  $('[data-rating] .star').on('click', function() {
+    var selectedCssClass = 'selected';
+    var $this = $(this);
+    $this.siblings('.' + selectedCssClass).removeClass(selectedCssClass);
+    $this
+      .addClass(selectedCssClass)
+      .parent().addClass('is-voted');
+  });
+</script>
