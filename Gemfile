@@ -37,6 +37,7 @@ gem 'simple_form'
 
 gem 'foundation-rails'
 gem 'autoprefixer-rails'
+gem "font-awesome-rails"
 
 gem 'devise'
 gem 'rolify'

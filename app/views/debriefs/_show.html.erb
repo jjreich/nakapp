@@ -1,0 +1,122 @@
+<p id="notice"><%= notice %></p>
+
+<button class="close-button" data-close aria-label="Close modal" type="button">
+  <span aria-hidden="true">&times;</span>
+</button>
+
+<div class="grid-x grid-padding-x">
+  <div class="cell small-12 text-center">
+    <h3>
+      Flight #<%= Flight.find(@debrief.flight_id).flightNumber %>
+    </h3>
+  </div>
+</div>
+
+<h4>
+  Flight Planning and Preparation 
+
+  <% if @debrief.preparationRating == 1 %>
+    <% starColorPrep = "red" %>
+  <% elsif @debrief.preparationRating == 2 %>
+    <% starColorPrep = "orange" %>
+  <% elsif @debrief.preparationRating == 3 %>
+    <% starColorPrep = "yellow" %>
+  <% elsif @debrief.preparationRating == 4 %>
+    <% starColorPrep = "green" %>
+  <% elsif @debrief.preparationRating == 5 %>
+    <% starColorPrep = "blue" %>  
+  <% end %>
+  <% n=0 %>
+  <% while n< @debrief.preparationRating %>
+    <i style="color:<%= starColorPrep %>;" class="fa fa-star"></i>
+    <% n += 1 %>
+  <% end %>  
+</h4>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @debrief.preparationComments %>
+</p>
+
+<% if @debrief.cateringStatus == true %>
+  <h4>
+    Catering 
+
+    <% if @debrief.cateringRating == 1 %>
+      <% starColorCater = "red" %>
+    <% elsif @debrief.cateringRating == 2 %>
+      <% starColorCater = "orange" %>
+    <% elsif @debrief.cateringRating == 3 %>
+      <% starColorCater = "yellow" %>
+    <% elsif @debrief.cateringRating == 4 %>
+      <% starColorCater = "green" %>
+    <% elsif @debrief.cateringRating == 5 %>
+    <% starColorCater = "blue" %> 
+    <% end %>
+    <% n=0 %>
+    <% while n< @debrief.cateringRating %>
+      <i style="color:<%= starColorCater %>;" class="fa fa-star"></i>
+      <% n += 1 %>
+    <% end %>  
+  </h4>
+
+  <p>
+    <strong>Comments:</strong>
+    <%= @debrief.cateringComments %>
+  </p>
+<% end %>
+
+
+
+<p>
+  <strong>Clientarrivaltiming:</strong>
+  <%= @debrief.clientArrivalTiming %>
+</p>
+
+<p>
+  <strong>Clientarrivaltype:</strong>
+  <%= @debrief.clientArrivalType %>
+</p>
+
+<p>
+  <strong>Clientarrivalcomments:</strong>
+  <%= @debrief.clientArrivalComments %>
+</p>
+
+<p>
+  <strong>Flightturbulence:</strong>
+  <%= @debrief.flightTurbulence %>
+</p>
+
+<p>
+  <strong>Airborneflightdelays:</strong>
+  <%= @debrief.airborneFlightDelays %>
+</p>
+
+<p>
+  <strong>Airborneflightcheckins:</strong>
+  <%= @debrief.airborneFlightCheckins %>
+</p>
+
+<p>
+  <strong>Flightcomments:</strong>
+  <%= @debrief.flightComments %>
+</p>
+
+<p>
+  <strong>Clientdeparturetype:</strong>
+  <%= @debrief.clientDepartureType %>
+</p>
+
+<p>
+  <strong>Clientdeparturecomments:</strong>
+  <%= @debrief.clientDepartureComments %>
+</p>
+
+<p>
+  <strong>Overallcomments:</strong>
+  <%= @debrief.overallComments %>
+</p>
+
+<%= link_to 'Edit', edit_debrief_path(@debrief) %> |
+<%= link_to 'Back', debriefs_path %>

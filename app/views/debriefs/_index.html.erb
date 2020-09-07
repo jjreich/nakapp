@@ -8,8 +8,8 @@
         <h4>
           <% flight = Flight.find(debrief.flight_id) %>
           <% flightNumber = flight.flightNumber %>
-          <% flightLink = "Flight " + flightNumber %>
-          <%= debrief.created_at.localtime.strftime ("%m/%d/%y %l:%M%P") %> - <%= link_to flightLink, debrief %> from <%= Airfield.find(flight.departureAirfield).icao %> to <%= Airfield.find(flight.arrivalAirfield).icao %>
+          <% flightLink = "Flight #" + flightNumber %>
+          <%= link_to flightLink, debrief, :remote => true %> from <%= Airfield.find(flight.departureAirfield).icao %> to <%= Airfield.find(flight.arrivalAirfield).icao %>
         </h4>
       </div>
     </div>
