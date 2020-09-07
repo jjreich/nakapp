@@ -87,7 +87,7 @@
   <% if @debrief.clientArrivalType.empty? %>
     . However, there is no report of arrival type.
   <% else %>
-     in <%= Arrivaltype.find(@debrief.clientArrivalType).arrivalTypes %>.
+     in a <%= Arrivaltype.find(@debrief.clientArrivalType).arrivalTypes %>.
   <% end %>
 
   <%= @debrief.clientArrivalComments %>
@@ -102,7 +102,7 @@
   <% if @debrief.flightTurbulence == "1" %>
     There was no reportable turbulence on the flight.  
   <% else %>
-    There was <%= @debrief.flightTurbulence %> on the flight.
+    There was <%= FlightTurbulence.find(@debrief.flightTurbulence).turbulenceType %> on the flight.
   <% end %>
 </p>
 
