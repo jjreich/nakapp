@@ -19,6 +19,11 @@
 
 </h4>
 
+<p>
+  <strong>Comments:</strong>
+  <%= @debrief.overallComments %>
+</p>
+
 <h4>
   Flight Planning and Preparation 
 
@@ -105,7 +110,7 @@
 </h4>
 
 <p>
-  <strong>Comments:</strong>
+  <strong>Comments: </strong>
   <% if @debrief.flightTurbulence == "1" %>
     There was no reportable turbulence on the flight.  
   <% else %>
@@ -134,20 +139,25 @@
   <%= @debrief.flightComments %>
 </p>
 
-<p>
-  <strong>Clientdeparturetype:</strong>
-  <%= @debrief.clientDepartureType %>
-</p>
+<h4>
+  Client's Departure
+</h4>
 
 <p>
-  <strong>Clientdeparturecomments:</strong>
+  <strong>Comments: </strong>
+  <% if @debrief.clientDepartureType.empty? %>
+    There is no report of the client's departure from the destination airfield.
+  <% else %>
+    The client departed the destination airfield in a <%= Departuretype.find(@debrief.clientDepartureType).departureTypes %>.
+  <% end %>
+
   <%= @debrief.clientDepartureComments %>
 </p>
 
-<p>
-  <strong>Overallcomments:</strong>
-  <%= @debrief.overallComments %>
-</p>
+
+Posted by <%= User.find(@debrief.user_id).email %>
+
+<br>
 
 <%= link_to 'Edit', edit_debrief_path(@debrief) %> |
 <%= link_to 'Back', debriefs_path %>
