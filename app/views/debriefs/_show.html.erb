@@ -43,15 +43,15 @@
     Catering 
 
     <% if @debrief.cateringRating == 1 %>
-      <% starColorCater = "red" %>
+      <% starColorCater = "darkred" %>
     <% elsif @debrief.cateringRating == 2 %>
-      <% starColorCater = "orange" %>
+      <% starColorCater = "red" %>
     <% elsif @debrief.cateringRating == 3 %>
-      <% starColorCater = "yellow" %>
+      <% starColorCater = "orange" %>
     <% elsif @debrief.cateringRating == 4 %>
       <% starColorCater = "green" %>
     <% elsif @debrief.cateringRating == 5 %>
-    <% starColorCater = "blue" %> 
+    <% starColorCater = "darkgreen" %> 
     <% end %>
     <% n=0 %>
     <% while n< @debrief.cateringRating %>
@@ -66,26 +66,44 @@
   </p>
 <% end %>
 
-
-
-<p>
-  <strong>Clientarrivaltiming:</strong>
-  <%= @debrief.clientArrivalTiming %>
-</p>
+<h4>
+  Client's Arrival
+</h4>
 
 <p>
-  <strong>Clientarrivaltype:</strong>
-  <%= @debrief.clientArrivalType %>
-</p>
+  <strong>Comments: </strong>
+  <% if @debrief.clientArrivalTiming == 0 %>
+    Client arrived on time
+  <% elsif @debrief.clientArrivalTiming == -1 %>
+    Client arrived 1 minute early
+  <% elsif @debrief.clientArrivalTiming < -1 %>
+    Client arrived <%= @debrief.clientArrivalTiming.abs %> minutes early 
+  <% elsif @debrief.clientArrivalTiming == 1 %>
+    Client arrived 1 minute late
+  <% elsif @debrief.clientArrivalTiming > 1 %>
+    Client arrived <%= @debrief.clientArrivalTiming %> minutes late
+  <% end %>
 
-<p>
-  <strong>Clientarrivalcomments:</strong>
+  <% if @debrief.clientArrivalType.empty? %>
+    . However, there is no report of arrival type.
+  <% else %>
+     in <%= Arrivaltype.find(@debrief.clientArrivalType).arrivalTypes %>.
+  <% end %>
+
   <%= @debrief.clientArrivalComments %>
 </p>
 
+<h4>
+  Flight Review
+</h4>
+
 <p>
-  <strong>Flightturbulence:</strong>
-  <%= @debrief.flightTurbulence %>
+  <strong>Comments:</strong>
+  <% if @debrief.flightTurbulence == "1" %>
+    There was no reportable turbulence on the flight.  
+  <% else %>
+    There was <%= @debrief.flightTurbulence %> on the flight.
+  <% end %>
 </p>
 
 <p>
