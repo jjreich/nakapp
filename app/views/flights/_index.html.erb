@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Flights</h3>
+
+    <% @flights.each do |flight| %>
+      <div class="grid-x grid-padding-x">
+        <div class="cell small-12">
+          <h4>
+            <% flightDescription = flight.flightNumber + " from " + Airfield.find(flight.departureAirfield).icao + " to " + Airfield.find(flight.arrivalAirfield).icao + " with " + flight.client %>
+            <%= link_to flightDescription, flight %>
+          </h4>
+        </div>
+      </div>
+    <% end %>
+
+<br>
+
+<%= link_to 'New Flight', new_flight_path %>

@@ -1,15 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Debriefs</h1>
-
+<h3>Feedback/Debriefs</h3>
+    
     <% @debriefs.each do |debrief| %>
-
-    <h4>
-      <% flight = Flight.find(debrief.flight_id) %>
-      <% flightNumber = flight.flightNumber %>
-      <% flightLink = "Flight " + flightNumber %>
-      <%= debrief.created_at %> - <%= link_to flightLink, debrief %> from <%= Airfield.find(flight.departureAirfield).icao %> to <%= Airfield.find(flight.arrivalAirfield).icao %>
-    </h4>
+    <div class="grid-x grid-padding-x">
+      <div class="cell small-12">
+        <h4>
+          <% flight = Flight.find(debrief.flight_id) %>
+          <% flightNumber = flight.flightNumber %>
+          <% flightLink = "Flight " + flightNumber %>
+          <%= debrief.created_at %> - <%= link_to flightLink, debrief %> from <%= Airfield.find(flight.departureAirfield).icao %> to <%= Airfield.find(flight.arrivalAirfield).icao %>
+        </h4>
+      </div>
+    </div>
     
     <% end %>
 
