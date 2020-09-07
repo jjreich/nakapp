@@ -120,22 +120,15 @@
   <% if Airborneflightdelay.find(@debrief.airborneFlightDelays).airborneFlightDelays == "None" %>
     There were no airborne delays on this flight.  
   <% else %>
-    Test
+    There was a <%= Airborneflightdelay.find(@debrief.airborneFlightDelays).airborneFlightDelays %> delay on the flight.
   <% end %>
-</p>
 
-<p>
-  <strong>Airborneflightdelays:</strong>
-  <%= @debrief.airborneFlightDelays %>
-</p>
+  <% if Airborneflightcheckin.find(@debrief.airborneFlightCheckins).airborneflightcheckins == "None" %>
+    There were no airborne checkins with the passengers on this flight.  
+  <% else %>
+    There were <%= Airborneflightcheckin.find(@debrief.airborneFlightCheckins).airborneflightcheckins %>. 
+  <% end %>
 
-<p>
-  <strong>Airborneflightcheckins:</strong>
-  <%= @debrief.airborneFlightCheckins %>
-</p>
-
-<p>
-  <strong>Flightcomments:</strong>
   <%= @debrief.flightComments %>
 </p>
 
