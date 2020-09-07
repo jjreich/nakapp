@@ -23,15 +23,15 @@
   Flight Planning and Preparation 
 
   <% if @debrief.preparationRating == 1 %>
-    <% starColorPrep = "red" %>
+    <% starColorPrep = "darkred" %>
   <% elsif @debrief.preparationRating == 2 %>
-    <% starColorPrep = "orange" %>
+    <% starColorPrep = "red" %>
   <% elsif @debrief.preparationRating == 3 %>
-    <% starColorPrep = "yellow" %>
+    <% starColorPrep = "orange" %>
   <% elsif @debrief.preparationRating == 4 %>
     <% starColorPrep = "green" %>
   <% elsif @debrief.preparationRating == 5 %>
-    <% starColorPrep = "blue" %>  
+    <% starColorPrep = "darkgreen" %>  
   <% end %>
   <% n=0 %>
   <% while n< @debrief.preparationRating %>
