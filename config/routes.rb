@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :flights
   resources :flight_turbulences
   resources :airborneflightcheckins
   resources :airborneflightdelays

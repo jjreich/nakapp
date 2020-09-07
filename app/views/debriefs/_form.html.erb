@@ -10,7 +10,11 @@
 </button>
 
 <div class="form-inputs">
-    <%= f.input :flightNumber, label: 'Flight Number' %>
+    <h4>Flight Data</h4>
+    <%= f.input :flight_id, collection: @flights, label_method: :flightNumber, label: 'Flight Number' %>
+
+    <hr>
+
     <h4>Planning and Flight Preparation Rating</h4>
     <%= f.hidden_field :preparationRating, label: 'Planning and Flight Preparation Rating' %>
 
@@ -46,6 +50,8 @@
     </div>
 
     <%= f.input :preparationComments, label: 'Comments' %>
+
+    <hr>
 
     <h4>Catering</h4>
     <%= f.input :cateringStatus, label: 'Check if there was Catering for Passengers' %>
@@ -83,6 +89,8 @@
 
     <%= f.input :cateringComments, label: 'Comments' %>
 
+    <hr>
+
     <h4>Client Arrival</h4>
 
     <div class="grid-x grid-margin-x">
@@ -100,11 +108,15 @@
     <%= f.input :clientArrivalType, collection: @arrivaltypes, label_method: :arrivalTypes, label: 'How did the Client Arrive?' %>
     <%= f.input :clientArrivalComments, label: 'Client Arrival Comments' %>
 
+    <hr>
+
     <h4>Airborne Feedback</h4>
     <%= f.input :flightTurbulence, collection: @flightTurbulences, label_method: :turbulenceType, :selected => 1, label: 'Select the best depiction of any turbulence you experienced during flight.' %>
     <%= f.input :airborneFlightDelays, collection: @airborneflightdelays, label_method: :airborneFlightDelays, :selected => 1, label: 'Select any type of airborne delays that caused the flight to last longer than expected.' %>
     <%= f.input :airborneFlightCheckins, collection: @airborneflightcheckins, label_method: :airborneflightcheckins, :selected => 1, label: 'Select how you checked in with the client airborne.'  %>
     <%= f.input :flightComments, label: 'Flight Comments' %>
+
+    <hr>
 
     <h4>Client Departure</h4>
     <%= f.input :clientDepartureType, collection: @departuretypes, label_method: :departureTypes, label: 'How did the client depart?' %>

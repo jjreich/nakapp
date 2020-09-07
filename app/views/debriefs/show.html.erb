@@ -2,7 +2,7 @@
 
 <p>
   <strong>Flightnumber:</strong>
-  <%= @debrief.flightNumber %>
+  <%= Flight.find(@debrief.flight_id).flightNumber %>
 </p>
 
 <p>

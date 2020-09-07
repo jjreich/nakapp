@@ -2,55 +2,16 @@
 
 <h1>Debriefs</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Flightnumber</th>
-      <th>Preparationrating</th>
-      <th>Preparationcomments</th>
-      <th>Cateringstatus</th>
-      <th>Cateringrating</th>
-      <th>Cateringcomments</th>
-      <th>Clientarrivaltiming</th>
-      <th>Clientarrivaltype</th>
-      <th>Clientarrivalcomments</th>
-      <th>Flightturbulence</th>
-      <th>Airborneflightdelays</th>
-      <th>Airborneflightcheckins</th>
-      <th>Flightcomments</th>
-      <th>Clientdeparturetype</th>
-      <th>Clientdeparturecomments</th>
-      <th>Overallcomments</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @debriefs.each do |debrief| %>
-      <tr>
-        <td><%= debrief.flightNumber %></td>
-        <td><%= debrief.preparationRating %></td>
-        <td><%= debrief.preparationComments %></td>
-        <td><%= debrief.cateringStatus %></td>
-        <td><%= debrief.cateringRating %></td>
-        <td><%= debrief.cateringComments %></td>
-        <td><%= debrief.clientArrivalTiming %></td>
-        <td><%= debrief.clientArrivalType %></td>
-        <td><%= debrief.clientArrivalComments %></td>
-        <td><%= debrief.flightTurbulence %></td>
-        <td><%= debrief.airborneFlightDelays %></td>
-        <td><%= debrief.airborneFlightCheckins %></td>
-        <td><%= debrief.flightComments %></td>
-        <td><%= debrief.clientDepartureType %></td>
-        <td><%= debrief.clientDepartureComments %></td>
-        <td><%= debrief.overallComments %></td>
-        <td><%= link_to 'Show', debrief %></td>
-        <td><%= link_to 'Edit', edit_debrief_path(debrief) %></td>
-        <td><%= link_to 'Destroy', debrief, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+    <h4>
+      <% flight = Flight.find(debrief.flight_id) %>
+      <% flightNumber = flight.flightNumber %>
+      <% flightLink = "Flight " + flightNumber %>
+      <%= debrief.created_at %> - <%= link_to flightLink, debrief %> from <%= Airfield.find(flight.departureAirfield).icao %> to <%= Airfield.find(flight.arrivalAirfield).icao %>
+    </h4>
+    
     <% end %>
-  </tbody>
-</table>
 
 <br>
 
