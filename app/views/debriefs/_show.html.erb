@@ -4,13 +4,20 @@
   <span aria-hidden="true">&times;</span>
 </button>
 
+  <% localFlight = Flight.find(@debrief.flight_id) %>
+
 <div class="grid-x grid-padding-x">
   <div class="cell small-12 text-center">
     <h3>
-      Flight #<%= Flight.find(@debrief.flight_id).flightNumber %>
+      Flight #<%= localFlight.flightNumber %>
     </h3>
   </div>
 </div>
+
+<h4>
+  <%= Airfield.find(localFlight.departureAirfield).icao %> - <%= Airfield.find(localFlight.arrivalAirfield).icao %>
+
+</h4>
 
 <h4>
   Flight Planning and Preparation 
@@ -103,6 +110,12 @@
     There was no reportable turbulence on the flight.  
   <% else %>
     There was <%= FlightTurbulence.find(@debrief.flightTurbulence).turbulenceType %> on the flight.
+  <% end %>
+
+  <% if Airborneflightdelay.find(@debrief.airborneFlightDelays).airborneFlightDelays == "None" %>
+    There were no airborne delays on this flight.  
+  <% else %>
+    Test
   <% end %>
 </p>
 
