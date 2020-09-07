@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<button class="close-button" data-close aria-label="Close modal" type="button">
+  <span aria-hidden="true">&times;</span>
+</button>
+
+<div class="grid-x grid-padding-x">
+  <div class="cell small-12 text-center">
+    <h3>
+      Flight #<%= @flight.flightNumber %>
+    </h3>
+  </div>
+</div>
+
+<h5>
+  <%= Airfield.find(@flight.departureAirfield).icao %> - <%= Airfield.find(@flight.arrivalAirfield).icao %>
+</h5>
+
+<p>
+  <strong>Client:</strong>
+  <%= @flight.client %>
+</p>
+
+<% debrief = @flight.debrief %>
+
+<%= link_to "Debrief", debrief, :remote => true %> |
+
+<%= link_to 'Edit', edit_flight_path(@flight) %>

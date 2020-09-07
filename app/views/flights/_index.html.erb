@@ -7,7 +7,7 @@
         <div class="cell small-12">
           <h4>
             <% flightDescription = flight.flightNumber + " from " + Airfield.find(flight.departureAirfield).icao + " to " + Airfield.find(flight.arrivalAirfield).icao + " with " + flight.client %>
-            <%= link_to flightDescription, flight %>
+            <%= link_to flightDescription, flight, :remote => true %>
           </h4>
         </div>
       </div>
