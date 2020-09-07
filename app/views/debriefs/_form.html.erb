@@ -4,16 +4,20 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :flight_id %>
 
 <button class="close-button" data-close aria-label="Close modal" type="button">
   <span aria-hidden="true">&times;</span>
 </button>
 
 <div class="form-inputs">
+
+<!--
     <h4>Flight Data</h4>
     <%= f.input :flight_id, collection: @flights, label_method: :flightNumber, label: 'Flight Number' %>
 
     <hr>
+-->
 
     <h4>Planning and Flight Preparation Rating</h4>
     <%= f.hidden_field :preparationRating, label: 'Planning and Flight Preparation Rating' %>

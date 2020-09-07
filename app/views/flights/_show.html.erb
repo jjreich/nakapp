@@ -21,8 +21,15 @@
   <%= @flight.client %>
 </p>
 
-<% debrief = @flight.debrief %>
+<% if @flight.debrief %>
+	<% debrief = @flight.debrief %>
+	<%= link_to "Debrief", debrief, :remote => true %> 
+<% else %>
+	<%= link_to 'New Debrief', new_debrief_path(:flight_id => @flight.id), :remote => true %>
+<% end %>
 
-<%= link_to "Debrief", debrief, :remote => true %> |
+<!-- 
 
-<%= link_to 'Edit', edit_flight_path(@flight) %>
+| <%= link_to 'Edit', edit_flight_path(@flight) %>
+
+-->

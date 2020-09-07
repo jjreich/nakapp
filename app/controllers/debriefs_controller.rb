@@ -14,11 +14,9 @@ class DebriefsController < ApplicationController
 
   # GET /debriefs/new
   def new
-    if user_signed_in?
-      @debrief = Debrief.new(:user_id => current_user.id)
-    else 
-      @debrief = Debrief.new(:user_id => '0')
-    end
+
+    @debrief = Debrief.new(:user_id => current_user.id, :flight_id => params[:flight_id])
+
     @flights = Flight.all
     @departuretypes = Departuretype.all
     @arrivaltypes = Arrivaltype.all
