@@ -151,7 +151,9 @@
 Posted by <%= User.find(@debrief.user_id).email %>
 
 <br>
+<br>
 
+<%= link_to 'Add New Comment', new_comment_path(:debrief_id => @debrief.id), :remote => true %>
 <!--
 
 <%= link_to 'Edit', edit_debrief_path(@debrief) %> |

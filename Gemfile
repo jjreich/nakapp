@@ -43,6 +43,8 @@ gem 'devise'
 gem 'rolify'
 gem 'cancancan'
 
+gem 'ancestry'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

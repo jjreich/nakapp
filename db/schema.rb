@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200906221546) do
+ActiveRecord::Schema.define(version: 20200908150235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,18 @@ ActiveRecord::Schema.define(version: 20200906221546) do
     t.string "arrivalTypes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "debrief_id"
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_comments_on_ancestry"
+    t.index ["debrief_id"], name: "index_comments_on_debrief_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "debriefs", force: :cascade do |t|
