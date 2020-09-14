@@ -15,7 +15,7 @@
 </div>
 
 <h4>
-  <%= Airfield.find(localFlight.departureAirfield).icao %> - <%= Airfield.find(localFlight.arrivalAirfield).icao %> with <%= localFlight.client %>
+  <%= localFlight.departureAirfield %> - <%= localFlight.arrivalAirfield %> with <%= localFlight.client %>
 
 </h4>
 

@@ -9,7 +9,7 @@
           <% flight = Flight.find(debrief.flight_id) %>
           <% flightNumber = flight.flightNumber %>
           <% flightLink = "Flight #" + flightNumber %>
-          <%= link_to flightLink, debrief, :remote => true %> from <%= Airfield.find(flight.departureAirfield).icao %> to <%= Airfield.find(flight.arrivalAirfield).icao %>
+          <%= link_to flightLink, debrief, :remote => true %> from <%= flight.departureAirfield %> to <%= flight.arrivalAirfield %>
         </h4>
       </div>
     </div>
