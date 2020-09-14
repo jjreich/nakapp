@@ -1,0 +1,17 @@
+<p>
+	<% pastCommentID = "addComments" + comment.id.to_s %>
+
+	<%= comment.created_at.strftime ("%m/%d/%y %l:%M%P") %> - <%= comment.body %> (<%= User.find(comment.user_id).email %>) <%= link_to "Reply", new_comment_path(:debrief_id => comment.debrief_id, :parent_id => comment.id, :pastCommentID => pastCommentID), :class => "", remote: true %>
+</p>
+
+<div id=<%= pastCommentID %>>
+
+</div>
+
+<% if comment.has_children? %>
+	<% comment.children.order(:created_at).each do |child| %>
+		<div class="nested_comments">
+	    	<%= render 'debriefs/comment', comment: child %>
+		</div>
+	<% end %>
+<% end %>
