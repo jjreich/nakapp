@@ -20,6 +20,7 @@ class FlightsController < ApplicationController
 
   # GET /flights/1/edit
   def edit
+
   end
 
   # POST /flights
