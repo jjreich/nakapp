@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_many :debriefs
   has_many :comments
+
+  def fullName
+    firstName + " " + lastName
+  end
 end
