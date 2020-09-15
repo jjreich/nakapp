@@ -136,6 +136,28 @@
 
 <h4>
   Flight Review
+
+  <% if @debrief.airborne_rating.present? %>
+
+    <% if @debrief.airborne_rating == 1 %>
+      <% starColorPrep = "darkred" %>
+    <% elsif @debrief.airborne_rating == 2 %>
+      <% starColorPrep = "red" %>
+    <% elsif @debrief.airborne_rating == 3 %>
+      <% starColorPrep = "orange" %>
+    <% elsif @debrief.airborne_rating == 4 %>
+      <% starColorPrep = "green" %>
+    <% elsif @debrief.airborne_rating == 5 %>
+      <% starColorPrep = "darkgreen" %>  
+    <% end %>
+    <% n=0 %>
+    <% while n< @debrief.airborne_rating %>
+      <i style="color:<%= starColorPrep %>;" class="fa fa-star"></i>
+      <% n += 1 %>
+    <% end %> 
+
+  <% end %>  
+
 </h4>
 
 <p>
@@ -163,6 +185,28 @@
 
 <h4>
   Client's Departure
+
+  <% if @debrief.client_departure_rating.present? %>
+
+    <% if @debrief.client_departure_rating == 1 %>
+      <% starColorPrep = "darkred" %>
+    <% elsif @debrief.client_departure_rating == 2 %>
+      <% starColorPrep = "red" %>
+    <% elsif @debrief.client_departure_rating == 3 %>
+      <% starColorPrep = "orange" %>
+    <% elsif @debrief.client_departure_rating == 4 %>
+      <% starColorPrep = "green" %>
+    <% elsif @debrief.client_departure_rating == 5 %>
+      <% starColorPrep = "darkgreen" %>  
+    <% end %>
+    <% n=0 %>
+    <% while n< @debrief.client_departure_rating %>
+      <i style="color:<%= starColorPrep %>;" class="fa fa-star"></i>
+      <% n += 1 %>
+    <% end %> 
+
+  <% end %>
+
 </h4>
 
 <p>

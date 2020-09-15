@@ -144,6 +144,41 @@
     <hr>
 
     <h4>Airborne Feedback</h4>
+
+    <%= f.hidden_field :airborne_rating, label: 'Client Arrival Experience Rating' %>
+
+
+    <div class="rating-block">
+      <div class="rating-block-rating" data-rating>
+        <div id="airborne_rating1" class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+        <div id="airborne_rating2" class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+        <div id="airborne_rating3" class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+        <div id="airborne_rating4" class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+        <div id="airborne_rating5" class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+
     <%= f.input :flightTurbulence, collection: @flightTurbulences, label_method: :turbulenceType, :selected => 1, label: 'Select the best depiction of any turbulence you experienced during flight.' %>
     <%= f.input :airborneFlightDelays, collection: @airborneflightdelays, label_method: :airborneFlightDelays, :selected => 1, label: 'Select any type of airborne delays that caused the flight to last longer than expected.' %>
     <%= f.input :airborneFlightCheckins, collection: @airborneflightcheckins, label_method: :airborneflightcheckins, :selected => 1, label: 'Select how you checked in with the client airborne.'  %>
@@ -152,6 +187,39 @@
     <hr>
 
     <h4>Client Departure</h4>
+    <%= f.hidden_field :client_departure_rating, label: 'Client Arrival Experience Rating' %>
+
+
+    <div class="rating-block">
+      <div class="rating-block-rating" data-rating>
+        <div id="client_departure_rating1" class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+        <div id="client_departure_rating2" class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+        <div id="client_departure_rating3" class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+        <div id="client_departure_rating4" class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+        <div id="client_departure_rating5" class="star">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
     <%= f.input :clientDepartureType, collection: @departuretypes, label_method: :departureTypes, label: 'How did the client depart?' %>
     <%= f.input :clientDepartureComments, label: 'Comments' %>
     <%= f.input :overallComments, label: 'Overall Comments' %>
