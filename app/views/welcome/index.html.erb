@@ -29,6 +29,9 @@
 
   <% if user_signed_in? %>
 
+    <% @debriefs = Debrief.includes(:flight).order("flights.created_at") %>
+    <%= render 'debriefs/index' %>
+
   <% end %>
 
 </div>
