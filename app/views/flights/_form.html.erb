@@ -7,14 +7,14 @@
 
   <div class="form-inputs">
     <% if @editTest == false %>
-      <%= f.input :flightNumber %>
+      <%= f.input :flightNumber, label: 'Flight Number' %>
     <% else %> 
       <%= f.hidden_field :flightNumber %>
     <% end %>
-    <%= f.input :dateOfFlight %>
-    <%= f.input :departureAirfield %>
-    <%= f.input :arrivalAirfield %>
-    <%= f.input :client %>
+    <%= f.input :dateOfFlight, label: 'Date of Flight' %>
+    <%= f.input :departureAirfield, label: 'Departing Airfield - ICAO' %>
+    <%= f.input :arrivalAirfield, label: 'Arriving Airfield - ICAO' %>
+    <%= f.input :client, label: 'Booking Client' %>
   </div>
 
   <div class="form-actions">

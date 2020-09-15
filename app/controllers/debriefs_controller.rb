@@ -4,7 +4,7 @@ class DebriefsController < ApplicationController
   # GET /debriefs
   # GET /debriefs.json
   def index
-    @debriefs = Debrief.all
+    @debriefs = Debrief.includes(:flight).order("flights.created_at")
   end
 
   # GET /debriefs/1
