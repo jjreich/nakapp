@@ -13,7 +13,7 @@
 </div>
 
 <h5>
-  <%= Airfield.find(@flight.departureAirfield).icao %> - <%= Airfield.find(@flight.arrivalAirfield).icao %>
+  <%= @flight.departureAirfield %> - <%= @flight.arrivalAirfield %>
 </h5>
 
 <p>
