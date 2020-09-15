@@ -82,6 +82,6 @@ class DebriefsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def debrief_params
-      params.require(:debrief).permit(:flightNumber, :preparationRating, :preparationComments, :cateringStatus, :cateringRating, :cateringComments, :clientArrivalTiming, :clientArrivalType, :clientArrivalComments, :flightTurbulence, :airborneFlightDelays, :airborneFlightCheckins, :flightComments, :clientDepartureType, :clientDepartureComments, :overallComments, :user_id, :flight_id)
+      params.require(:debrief).permit(:flightNumber, :preparationRating, :preparationComments, :cateringStatus, :cateringRating, :cateringComments, :clientArrivalTiming, :clientArrivalType, :clientArrivalComments, :flightTurbulence, :airborneFlightDelays, :airborneFlightCheckins, :flightComments, :clientDepartureType, :clientDepartureComments, :overallComments, :user_id, :flight_id, :client_arrival_rating, :airborne_rating, :client_departure_rating )
     end
 end
