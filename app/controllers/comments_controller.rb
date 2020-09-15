@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = Comment.new(:user_id => current_user.id, :debrief_id => params[:debrief_id])
+    @comment = Comment.new(:user_id => current_user.id, :debrief_id => params[:debrief_id], :parent_id => params[:parent_id])
   end
 
   # GET /comments/1/edit
@@ -25,9 +25,11 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
+    @debrief = Debrief.find(@comment.debrief_id)
 
     respond_to do |format|
       if @comment.save
+        format.js
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
@@ -69,6 +71,6 @@ class CommentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.require(:comment).permit(:body, :debrief_id, :user_id)
+      params.require(:comment).permit(:body, :debrief_id, :user_id, :parent_id)
     end
 end

@@ -16,3 +16,27 @@
  *= require font-awesome
 
  */
+
+.comments {
+   margin-left: 10px;
+}
+
+.comments_container {
+   height: 22px;
+   width: 34px;
+   background-image: image-url('comments36.png');
+   background-repeat: no-repeat;
+   background-size: auto;
+   text-align: center;
+   color:gray;
+   display: inline-block;
+   line-height: 130%;
+}
+
+.nested_comments {
+   margin-left: 30px;
+}
+
+.nested_comments .nested_comments .nested_comments .nested_comments {
+   margin-left: 0;
+}
