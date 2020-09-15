@@ -33,9 +33,11 @@ class DebriefsController < ApplicationController
   # POST /debriefs.json
   def create
     @debrief = Debrief.new(debrief_params)
+    @debriefs = Debrief.all
 
     respond_to do |format|
       if @debrief.save
+        format.js
         format.html { redirect_to @debrief, notice: 'Debrief was successfully created.' }
         format.json { render :show, status: :created, location: @debrief }
       else
@@ -48,8 +50,11 @@ class DebriefsController < ApplicationController
   # PATCH/PUT /debriefs/1
   # PATCH/PUT /debriefs/1.json
   def update
+    @debriefs = Debrief.all
+
     respond_to do |format|
       if @debrief.update(debrief_params)
+        format.js
         format.html { redirect_to @debrief, notice: 'Debrief was successfully updated.' }
         format.json { render :show, status: :ok, location: @debrief }
       else
