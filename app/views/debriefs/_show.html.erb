@@ -9,7 +9,24 @@
 <div class="grid-x grid-padding-x">
   <div class="cell small-12 text-center">
     <h3>
-      Flight #<%= localFlight.flightNumber %>
+      Flight #<%= localFlight.flightNumber %> - 
+
+        <% if @debrief.star_rating_value[0] == 1 %>
+          <% starColorPrep = "darkred" %>
+        <% elsif @debrief.star_rating_value[0] == 2 %>
+          <% starColorPrep = "red" %>
+        <% elsif @debrief.star_rating_value[0] == 3 %>
+          <% starColorPrep = "orange" %>
+        <% elsif @debrief.star_rating_value[0] == 4 %>
+          <% starColorPrep = "green" %>
+        <% elsif @debrief.star_rating_value[0] == 5 %>
+          <% starColorPrep = "darkgreen" %>  
+        <% end %>
+        <% n=0 %>
+        <% while n< @debrief.star_rating_value[0] %>
+          <i style="color:<%= starColorPrep %>;" class="fa fa-star"></i>
+          <% n += 1 %>
+        <% end %>
     </h3>
   </div>
 </div>
