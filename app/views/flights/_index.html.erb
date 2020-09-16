@@ -6,7 +6,10 @@
       <div class="grid-x grid-padding-x">
         <div class="cell small-12">
           <h4>
-            <% flightDescription = flight.flightNumber + " from " + flight.departureAirfield + " to " + flight.arrivalAirfield + " with " + flight.client %>
+            <% flightDescription = flight.flightNumber + " from " + flight.departureAirfield + " to " + flight.arrivalAirfield %>
+            <% if flight.revenue_test == true %>
+              <% flightDescription = flightDescription + " with " + flight.client %>
+            <% end %>
             <%= link_to flightDescription, flight, :remote => true %>
             <%= link_to edit_flight_path(flight), :class => "", remote: true, data: {:"reveal-id" => "myModal"} do %>
               <%= image_tag("edit24.png", width: "16", :alt => "edit") %>
