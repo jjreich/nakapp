@@ -1,7 +1,12 @@
 <p>
-	<% pastCommentID = "addComments" + comment.id.to_s %>
+	<% pastCommentID = "addComments" + comment.id.to_s %> 
 
-	<%= comment.created_at.strftime ("%m/%d/%y %l:%M%P") %> - <%= comment.body %> (<%= User.find(comment.user_id).fullName %>) <%= link_to "Reply", new_comment_path(:debrief_id => comment.debrief_id, :parent_id => comment.id, :pastCommentID => pastCommentID), :class => "", remote: true %>
+	<%= comment.created_at.strftime ("%m/%d/%y %l:%M%P") %> - <%= comment.body %> (<%= User.find(comment.user_id).fullName %>) 
+	&nbsp;
+	&nbsp;
+	<strong>
+		<%= link_to "Reply", new_comment_path(:debrief_id => comment.debrief_id, :parent_id => comment.id, :pastCommentID => pastCommentID), :class => "", remote: true %>
+	</strong>
 </p>
 
 <div id="<%= pastCommentID %>">
