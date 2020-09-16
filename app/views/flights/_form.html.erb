@@ -14,10 +14,27 @@
     <%= f.input :dateOfFlight, label: 'Date of Flight' %>
     <%= f.input :departureAirfield, label: 'Departing Airfield - ICAO' %>
     <%= f.input :arrivalAirfield, label: 'Arriving Airfield - ICAO' %>
-    <%= f.input :client, label: 'Booking Client' %>
+    <%= f.input :revenue_test, label: 'Check if a revenue flight' %>
+    <div class="hide" id="client_status">
+      <%= f.input :client, label: 'Booking Client' %>
+    </div>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<script>
+  $( "#flight_revenue_test" ).on('click', function() {
+    if ($( "#flight_revenue_test" ).is(':checked') ) {
+      $( "#client_status" ).removeClass( "hide" ).addClass( "show" );
+    }
+    else {
+      $( "#client_status" ).removeClass( "show" ).addClass( "hide" );
+    };
+  });
+
+
+  $(function(){ $(document).foundation(); });
+</script>
