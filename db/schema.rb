@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200915234945) do
+ActiveRecord::Schema.define(version: 20200916024620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,9 @@ ActiveRecord::Schema.define(version: 20200915234945) do
     t.integer "client_arrival_rating"
     t.integer "airborne_rating"
     t.integer "client_departure_rating"
+    t.integer "maintenance_rating"
+    t.boolean "maintenance_check"
+    t.text "maintenance_comments"
     t.index ["flight_id"], name: "index_debriefs_on_flight_id"
     t.index ["user_id"], name: "index_debriefs_on_user_id"
   end

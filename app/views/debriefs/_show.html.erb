@@ -242,6 +242,38 @@
   <%= @debrief.clientDepartureComments %>
 </p>
 
+<% if @debrief.maintenance_check == true %>
+  <h4>
+    Maintenance 
+
+    <% if @debrief.maintenance_rating.present? %>
+
+      <% if @debrief.maintenance_rating == 1 %>
+        <% starColorCater = "darkred" %>
+      <% elsif @debrief.maintenance_rating == 2 %>
+        <% starColorCater = "red" %>
+      <% elsif @debrief.maintenance_rating == 3 %>
+        <% starColorCater = "orange" %>
+      <% elsif @debrief.maintenance_rating == 4 %>
+        <% starColorCater = "green" %>
+      <% elsif @debrief.maintenance_rating == 5 %>
+      <% starColorCater = "darkgreen" %> 
+      <% end %>
+      <% n=0 %>
+      <% while n< @debrief.maintenance_rating %>
+        <i style="color:<%= starColorCater %>;" class="fa fa-star"></i>
+        <% n += 1 %>
+      <% end %>  
+
+    <% end %>
+  </h4>
+
+  <p>
+    <strong>Comments:</strong>
+    <%= @debrief.maintenance_comments %>
+  </p>
+<% end %>
+
 
 Posted by <%= User.find(@debrief.user_id).fullName %>
 

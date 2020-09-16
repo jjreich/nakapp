@@ -14,6 +14,10 @@
 
     <hr>
 -->
+    
+    <%= f.input :overallComments, label: 'Overall Comments' %>
+
+    <hr>
 
     <h4>Planning and Flight Preparation Rating</h4>
     <%= f.hidden_field :preparationRating, label: 'Planning and Flight Preparation Rating' %>
@@ -224,7 +228,49 @@
     
     <%= f.input :clientDepartureType, collection: @departuretypes, label_method: :departureTypes, label: 'How did the client depart?' %>
     <%= f.input :clientDepartureComments, label: 'Comments' %>
-    <%= f.input :overallComments, label: 'Overall Comments' %>
+
+    <hr>
+
+    <h4>Maintenance</h4>
+    <%= f.input :maintenance_check, label: 'Check if there was any maintenance issues' %>
+    <%= f.hidden_field :maintenance_rating %>
+
+    <div class="hide" id="maintenance_block">
+      <div class="rating-block">
+        <div class="rating-block-rating" data-rating>
+          <div id="maintenance_rating1" class="star">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+              <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+            </svg>
+          </div>
+          <div id="maintenance_rating2" class="star">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+              <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+            </svg>
+          </div>
+          <div id="maintenance_rating3" class="star">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+              <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+            </svg>
+          </div>
+          <div id="maintenance_rating4" class="star">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+              <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+            </svg>
+          </div>
+          <div id="maintenance_rating5" class="star">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+              <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <%= f.input :maintenance_comments, label: 'Comments' %>
+    </div>
+
+    <hr>
+
   </div>
 
   <div class="form-actions">
@@ -255,6 +301,15 @@
     };
   });
 
+
+  $( "#debrief_maintenance_check" ).on('click', function() {
+    if ($( "#debrief_maintenance_check" ).is(':checked') ) {
+      $( "#maintenance_block" ).removeClass( "hide" ).addClass( "show" );
+    }
+    else {
+      $( "#maintenance_block" ).removeClass( "show" ).addClass( "hide" );
+    };
+  });
 
   $(function(){ $(document).foundation(); });
 </script>
