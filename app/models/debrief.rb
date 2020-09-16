@@ -33,6 +33,11 @@ class Debrief < ApplicationRecord
 	  	ratingcount = ratingcount + 1
 	  end
 
+	  if maintenance_rating.present?
+	  	ratingsum = ratingsum + maintenance_rating
+	  	ratingcount = ratingcount + 1
+	  end
+
 	  ratingsum = ratingsum.to_f
 	  overall_rating = (ratingsum / ratingcount)
 

@@ -108,139 +108,143 @@
   </p>
 <% end %>
 
-<h4>
-  Client's Arrival
+<% if localFlight.revenue_test == true %>
 
-  <% if @debrief.client_arrival_rating.present? %>
+  <h4>
+    Member's Arrival
 
-    <% if @debrief.client_arrival_rating == 1 %>
-      <% starColorPrep = "darkred" %>
-    <% elsif @debrief.client_arrival_rating == 2 %>
-      <% starColorPrep = "red" %>
-    <% elsif @debrief.client_arrival_rating == 3 %>
-      <% starColorPrep = "orange" %>
-    <% elsif @debrief.client_arrival_rating == 4 %>
-      <% starColorPrep = "green" %>
-    <% elsif @debrief.client_arrival_rating == 5 %>
-      <% starColorPrep = "darkgreen" %>  
+    <% if @debrief.client_arrival_rating.present? %>
+
+      <% if @debrief.client_arrival_rating == 1 %>
+        <% starColorPrep = "darkred" %>
+      <% elsif @debrief.client_arrival_rating == 2 %>
+        <% starColorPrep = "red" %>
+      <% elsif @debrief.client_arrival_rating == 3 %>
+        <% starColorPrep = "orange" %>
+      <% elsif @debrief.client_arrival_rating == 4 %>
+        <% starColorPrep = "green" %>
+      <% elsif @debrief.client_arrival_rating == 5 %>
+        <% starColorPrep = "darkgreen" %>  
+      <% end %>
+      <% n=0 %>
+      <% while n< @debrief.client_arrival_rating %>
+        <i style="color:<%= starColorPrep %>;" class="fa fa-star"></i>
+        <% n += 1 %>
+      <% end %> 
+
+    <% end %>  
+  </h4>
+
+  <p>
+    <strong>Comments: </strong>
+    <% if @debrief.clientArrivalTiming == 0 %>
+      Client arrived on time
+    <% elsif @debrief.clientArrivalTiming == -1 %>
+      Client arrived 1 minute early
+    <% elsif @debrief.clientArrivalTiming < -1 %>
+      Client arrived <%= @debrief.clientArrivalTiming.abs %> minutes early 
+    <% elsif @debrief.clientArrivalTiming == 1 %>
+      Client arrived 1 minute late
+    <% elsif @debrief.clientArrivalTiming > 1 %>
+      Client arrived <%= @debrief.clientArrivalTiming %> minutes late
     <% end %>
-    <% n=0 %>
-    <% while n< @debrief.client_arrival_rating %>
-      <i style="color:<%= starColorPrep %>;" class="fa fa-star"></i>
-      <% n += 1 %>
-    <% end %> 
 
-  <% end %>  
-</h4>
-
-<p>
-  <strong>Comments: </strong>
-  <% if @debrief.clientArrivalTiming == 0 %>
-    Client arrived on time
-  <% elsif @debrief.clientArrivalTiming == -1 %>
-    Client arrived 1 minute early
-  <% elsif @debrief.clientArrivalTiming < -1 %>
-    Client arrived <%= @debrief.clientArrivalTiming.abs %> minutes early 
-  <% elsif @debrief.clientArrivalTiming == 1 %>
-    Client arrived 1 minute late
-  <% elsif @debrief.clientArrivalTiming > 1 %>
-    Client arrived <%= @debrief.clientArrivalTiming %> minutes late
-  <% end %>
-
-  <% if @debrief.clientArrivalType.empty? %>
-    . However, there is no report of arrival type.
-  <% else %>
-     in a <%= Arrivaltype.find(@debrief.clientArrivalType).arrivalTypes %>.
-  <% end %>
-
-  <%= @debrief.clientArrivalComments %>
-</p>
-
-<h4>
-  Flight Review
-
-  <% if @debrief.airborne_rating.present? %>
-
-    <% if @debrief.airborne_rating == 1 %>
-      <% starColorPrep = "darkred" %>
-    <% elsif @debrief.airborne_rating == 2 %>
-      <% starColorPrep = "red" %>
-    <% elsif @debrief.airborne_rating == 3 %>
-      <% starColorPrep = "orange" %>
-    <% elsif @debrief.airborne_rating == 4 %>
-      <% starColorPrep = "green" %>
-    <% elsif @debrief.airborne_rating == 5 %>
-      <% starColorPrep = "darkgreen" %>  
+    <% if @debrief.clientArrivalType.empty? %>
+      . However, there is no report of arrival type.
+    <% else %>
+       in a <%= Arrivaltype.find(@debrief.clientArrivalType).arrivalTypes %>.
     <% end %>
-    <% n=0 %>
-    <% while n< @debrief.airborne_rating %>
-      <i style="color:<%= starColorPrep %>;" class="fa fa-star"></i>
-      <% n += 1 %>
-    <% end %> 
 
-  <% end %>  
+    <%= @debrief.clientArrivalComments %>
+  </p>
 
-</h4>
+  <h4>
+    Member's Flight Experience
 
-<p>
-  <strong>Comments: </strong>
-  <% if @debrief.flightTurbulence == "1" %>
-    There was no reportable turbulence on the flight.  
-  <% else %>
-    There was <%= FlightTurbulence.find(@debrief.flightTurbulence).turbulenceType %> on the flight.
-  <% end %>
+    <% if @debrief.airborne_rating.present? %>
 
-  <% if Airborneflightdelay.find(@debrief.airborneFlightDelays).airborneFlightDelays == "None" %>
-    There were no airborne delays on this flight.  
-  <% else %>
-    There was a <%= Airborneflightdelay.find(@debrief.airborneFlightDelays).airborneFlightDelays %> delay on the flight.
-  <% end %>
+      <% if @debrief.airborne_rating == 1 %>
+        <% starColorPrep = "darkred" %>
+      <% elsif @debrief.airborne_rating == 2 %>
+        <% starColorPrep = "red" %>
+      <% elsif @debrief.airborne_rating == 3 %>
+        <% starColorPrep = "orange" %>
+      <% elsif @debrief.airborne_rating == 4 %>
+        <% starColorPrep = "green" %>
+      <% elsif @debrief.airborne_rating == 5 %>
+        <% starColorPrep = "darkgreen" %>  
+      <% end %>
+      <% n=0 %>
+      <% while n< @debrief.airborne_rating %>
+        <i style="color:<%= starColorPrep %>;" class="fa fa-star"></i>
+        <% n += 1 %>
+      <% end %> 
 
-  <% if Airborneflightcheckin.find(@debrief.airborneFlightCheckins).airborneflightcheckins == "None" %>
-    There were no airborne checkins with the passengers on this flight.  
-  <% else %>
-    There were <%= Airborneflightcheckin.find(@debrief.airborneFlightCheckins).airborneflightcheckins %>. 
-  <% end %>
+    <% end %>  
 
-  <%= @debrief.flightComments %>
-</p>
+  </h4>
 
-<h4>
-  Client's Departure
-
-  <% if @debrief.client_departure_rating.present? %>
-
-    <% if @debrief.client_departure_rating == 1 %>
-      <% starColorPrep = "darkred" %>
-    <% elsif @debrief.client_departure_rating == 2 %>
-      <% starColorPrep = "red" %>
-    <% elsif @debrief.client_departure_rating == 3 %>
-      <% starColorPrep = "orange" %>
-    <% elsif @debrief.client_departure_rating == 4 %>
-      <% starColorPrep = "green" %>
-    <% elsif @debrief.client_departure_rating == 5 %>
-      <% starColorPrep = "darkgreen" %>  
+  <p>
+    <strong>Comments: </strong>
+    <% if @debrief.flightTurbulence == "1" %>
+      There was no reportable turbulence on the flight.  
+    <% else %>
+      There was <%= FlightTurbulence.find(@debrief.flightTurbulence).turbulenceType %> on the flight.
     <% end %>
-    <% n=0 %>
-    <% while n< @debrief.client_departure_rating %>
-      <i style="color:<%= starColorPrep %>;" class="fa fa-star"></i>
-      <% n += 1 %>
-    <% end %> 
 
-  <% end %>
+    <% if Airborneflightdelay.find(@debrief.airborneFlightDelays).airborneFlightDelays == "None" %>
+      There were no airborne delays on this flight.  
+    <% else %>
+      There was a <%= Airborneflightdelay.find(@debrief.airborneFlightDelays).airborneFlightDelays %> delay on the flight.
+    <% end %>
 
-</h4>
+    <% if Airborneflightcheckin.find(@debrief.airborneFlightCheckins).airborneflightcheckins == "None" %>
+      There were no airborne checkins with the passengers on this flight.  
+    <% else %>
+      There were <%= Airborneflightcheckin.find(@debrief.airborneFlightCheckins).airborneflightcheckins %>. 
+    <% end %>
 
-<p>
-  <strong>Comments: </strong>
-  <% if @debrief.clientDepartureType.empty? %>
-    There is no report of the client's departure from the destination airfield.
-  <% else %>
-    The client departed the destination airfield in a <%= Departuretype.find(@debrief.clientDepartureType).departureTypes %>.
-  <% end %>
+    <%= @debrief.flightComments %>
+  </p>
 
-  <%= @debrief.clientDepartureComments %>
-</p>
+  <h4>
+    Member's Departure
+
+    <% if @debrief.client_departure_rating.present? %>
+
+      <% if @debrief.client_departure_rating == 1 %>
+        <% starColorPrep = "darkred" %>
+      <% elsif @debrief.client_departure_rating == 2 %>
+        <% starColorPrep = "red" %>
+      <% elsif @debrief.client_departure_rating == 3 %>
+        <% starColorPrep = "orange" %>
+      <% elsif @debrief.client_departure_rating == 4 %>
+        <% starColorPrep = "green" %>
+      <% elsif @debrief.client_departure_rating == 5 %>
+        <% starColorPrep = "darkgreen" %>  
+      <% end %>
+      <% n=0 %>
+      <% while n< @debrief.client_departure_rating %>
+        <i style="color:<%= starColorPrep %>;" class="fa fa-star"></i>
+        <% n += 1 %>
+      <% end %> 
+
+    <% end %>
+
+  </h4>
+
+  <p>
+    <strong>Comments: </strong>
+    <% if @debrief.clientDepartureType.empty? %>
+      There is no report of the client's departure from the destination airfield.
+    <% else %>
+      The client departed the destination airfield in a <%= Departuretype.find(@debrief.clientDepartureType).departureTypes %>.
+    <% end %>
+
+    <%= @debrief.clientDepartureComments %>
+  </p>
+
+<% end %>
 
 <% if @debrief.maintenance_check == true %>
   <h4>
