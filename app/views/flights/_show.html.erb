@@ -14,12 +14,18 @@
 
 <h5>
   <%= @flight.departureAirfield %> - <%= @flight.arrivalAirfield %>
+
+  <% if @flight.revenue_test == false %>
+    - Repo Flight
+  <% end %>
 </h5>
 
-<p>
-  <strong>Client:</strong>
-  <%= @flight.client %>
-</p>
+<% if @flight.revenue_test == true %>
+  <h6>
+    Client: 
+    <%= @flight.client %>
+  </h6>
+<% end %>
 
 <% if @flight.debrief %>
 	<% debrief = @flight.debrief %>
