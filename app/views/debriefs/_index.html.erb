@@ -3,6 +3,7 @@
 <h3>Feedback/Debriefs</h3>
     
     <% @debriefs.each do |debrief| %>
+    <% commentCount = Comment.where(:debrief_id => debrief.id).count %>
     <div class="grid-x grid-padding-x">
       <div class="cell small-12">
         <h4>
@@ -28,8 +29,8 @@
           <% flightLink = "Flight #" + flightNumber + " from " + flight.departureAirfield + " to " + flight.arrivalAirfield %>
           <%= link_to flightLink, debrief, :remote => true %>
 
-          <% if debrief.comments.present? %>
-            <%= image_tag("comments.png", width: "30") %>
+          <% if commentCount > 0 %>
+              <div class="comments_container"><%= commentCount %></div>&nbsp&nbsp
           <% end %>
         </h4>
       </div>
