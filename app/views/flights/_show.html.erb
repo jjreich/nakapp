@@ -27,12 +27,14 @@
   </h6>
 <% end %>
 
-<% if @flight.debrief %>
-	<% debrief = @flight.debrief %>
-	<%= link_to "Debrief", debrief, :remote => true %> 
-<% else %>
-	<%= link_to 'New Debrief', new_debrief_path(:flight_id => @flight.id), :remote => true %>
-<% end %>
+<div class="text-right">
+  <% if @flight.debrief %>
+  	<% debrief = @flight.debrief %>
+  	<%= link_to "Debrief", debrief, :remote => true, class: "button" %> 
+  <% else %>
+  	<%= link_to 'New Debrief', new_debrief_path(:flight_id => @flight.id), :remote => true, class: "button" %>
+  <% end %>
+</div>
 
 <!-- 
 
