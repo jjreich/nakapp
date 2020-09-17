@@ -41,6 +41,17 @@
   <% end %>
 </h4>
 
+
+<h5>
+  Crew: 
+  <% if localFlight.pic.present? %>
+    Captain <%= User.find(localFlight.pic).fullName %>
+    <% if localFlight.sic.present? %>
+      and First Officer <%= User.find(localFlight.sic).fullName %>
+    <% end %>
+  <% end %>
+</h5>
+
 <p>
   <strong>Comments:</strong>
   <%= @debrief.overallComments %>
