@@ -26,9 +26,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @debrief = Debrief.find(@comment.debrief_id)
+    @debriefs = Debrief.includes(:flight).order("flights.created_at").reverse
 
     respond_to do |format|
       if @comment.save
+        ViewedComment.create :user_id => current_user.id, :comment_id => @comment.id
         format.js
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
