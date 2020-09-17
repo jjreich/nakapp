@@ -10,6 +10,10 @@ class DebriefsController < ApplicationController
   # GET /debriefs/1
   # GET /debriefs/1.json
   def show
+    @debrief.comments.each do |comment|
+      ViewedComment.create :user_id => current_user.id, :comment_id => comment.id
+    end    
+    @debriefs = Debrief.includes(:flight).order("flights.created_at").reverse
   end
 
   # GET /debriefs/new
