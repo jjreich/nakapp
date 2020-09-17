@@ -290,7 +290,14 @@
 <% end %>
 
 
-Posted by <%= User.find(@debrief.user_id).fullName %>
+Posted by 
+
+<% if User.find(@debrief.user_id) == User.find(localFlight.pic) %>
+  Captain 
+<% elsif User.find(@debrief.user_id) == User.find(localFlight.sic) %>
+  First Officer
+<% end %>
+<%= User.find(@debrief.user_id).fullName %>
 
 <br>
 <br>
