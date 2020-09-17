@@ -21,7 +21,7 @@ class FlightsController < ApplicationController
 
   # GET /flights/1/edit
   def edit
-
+    @users = User.all
   end
 
   # POST /flights
