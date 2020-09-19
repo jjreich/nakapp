@@ -32,9 +32,9 @@
 
           <% if commentCount > 0 %>
             <% lastComment = debrief.comments.order(:created_at).last %>
-            <% if lastComment.viewed_comments.where(:user_id => current_user.id).present? %>
-              <% lastCommentView = lastComment.viewed_comments.where(:user_id => current_user.id).order(:created_at).last %>
-              <% if lastCommentView.created_at < lastComment.created_at %>
+            <% if debrief.viewed_debriefs.where(:user_id => current_user.id).present? %>
+              <% lastDebriefView = debrief.viewed_debriefs.where(:user_id => current_user.id).order(:created_at).last %>
+              <% if lastDebriefView.created_at < lastComment.created_at %>
                   <% commentColor = "red" %>
               <% end %>
             <% else %>

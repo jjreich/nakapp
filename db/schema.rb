@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200919182214) do
+ActiveRecord::Schema.define(version: 20200919193445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -171,6 +171,15 @@ ActiveRecord::Schema.define(version: 20200919182214) do
     t.integer "comment_id"
     t.index ["comment_id"], name: "index_viewed_comments_on_comment_id"
     t.index ["user_id"], name: "index_viewed_comments_on_user_id"
+  end
+
+  create_table "viewed_debriefs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "debrief_id"
+    t.index ["debrief_id"], name: "index_viewed_debriefs_on_debrief_id"
+    t.index ["user_id"], name: "index_viewed_debriefs_on_user_id"
   end
 
 end

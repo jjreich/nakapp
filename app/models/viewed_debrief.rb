@@ -1,0 +1,2 @@
+class ViewedDebrief < ApplicationRecord
+end

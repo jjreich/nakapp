@@ -2,6 +2,8 @@ class Debrief < ApplicationRecord
 	belongs_to :user
 	belongs_to :flight
 	has_many :comments
+  	has_many :viewed_debriefs
+
 
 	def overall_rating
 

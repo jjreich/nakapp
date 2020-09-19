@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        ViewedComment.create :user_id => current_user.id, :comment_id => @comment.id
+        ViewedDebrief.create :user_id => current_user.id, :debrief_id => @debrief.id
         format.js
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
