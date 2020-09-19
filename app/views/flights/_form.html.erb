@@ -12,8 +12,8 @@
       <%= f.hidden_field :flightNumber %>
     <% end %>
     <%= f.input :dateOfFlight, label: 'Date of Flight' %>
-    <%= f.input :pic, collection: @users, label_method: :fullName, label: 'Captain' %>
-    <%= f.input :sic, collection: @users, label_method: :fullName, label: 'First Officer' %>
+    <%= f.input :pic, collection: @pilots, label_method: :fullName, label: 'Captain' %>
+    <%= f.input :sic, collection: @pilots, label_method: :fullName, label: 'First Officer' %>
     <%= f.input :departureAirfield, label: 'Departing Airfield - ICAO' %>
     <%= f.input :arrivalAirfield, label: 'Arriving Airfield - ICAO' %>
     <%= f.input :revenue_test, label: 'Check if a revenue flight' %>

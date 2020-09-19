@@ -16,7 +16,7 @@ class FlightsController < ApplicationController
   def new
     @flight = Flight.new
     @airfields = Airfield.all
-    @users = User.all
+    @pilots = User.pilots.all
   end
 
   # GET /flights/1/edit
