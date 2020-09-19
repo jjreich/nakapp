@@ -19,7 +19,9 @@
     - Repo Flight
   <% end %>
 
-  on <%= Aircraft.find(@flight.aircraft).tailNumber %>
+  <% if @flight.aircraft.present? %>
+    on <%= Aircraft.find(@flight.aircraft).tailNumber %>
+  <% end %>
 </h5>
 
 <% if @flight.revenue_test == true %>
