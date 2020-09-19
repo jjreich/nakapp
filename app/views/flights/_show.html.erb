@@ -7,7 +7,7 @@
 <div class="grid-x grid-padding-x">
   <div class="cell small-12 text-center">
     <h3>
-      Flight #<%= @flight.flightNumber %> - <%= @flight.dateOfFlight %>
+      Flight #<%= @flight.flightNumber %> - <%= @flight.dateOfFlight %> on <%= Aircraft.find(@flight.aircraft).tailNumber %>
     </h3>
   </div>
 </div>
@@ -18,6 +18,8 @@
   <% if @flight.revenue_test == false %>
     - Repo Flight
   <% end %>
+
+  on <%= Aircraft.find(@flight.aircraft).tailNumber %>
 </h5>
 
 <% if @flight.revenue_test == true %>

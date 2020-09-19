@@ -17,11 +17,14 @@ class FlightsController < ApplicationController
     @flight = Flight.new
     @airfields = Airfield.all
     @pilots = User.pilots.all
+    @aircrafts = Aircraft.all
   end
 
   # GET /flights/1/edit
   def edit
     @users = User.all
+    @pilots = User.pilots.all
+    @aircrafts = Aircraft.all
   end
 
   # POST /flights
@@ -76,6 +79,6 @@ class FlightsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def flight_params
-      params.require(:flight).permit(:flightNumber, :departureAirfield, :arrivalAirfield, :client, :dateOfFlight, :revenue_test, :pic, :sic)
+      params.require(:flight).permit(:flightNumber, :departureAirfield, :arrivalAirfield, :client, :dateOfFlight, :revenue_test, :pic, :sic, :aircraft)
     end
 end

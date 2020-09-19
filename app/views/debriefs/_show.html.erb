@@ -32,12 +32,15 @@
 </div>
 
 <h4>
-  <%= localFlight.departureAirfield %> - <%= localFlight.arrivalAirfield %>
-
+  <%= localFlight.departureAirfield %> - <%= localFlight.arrivalAirfield %> 
   <% if localFlight.revenue_test == false %>
     (Repo Flight)
   <% else %>
     with <%= localFlight.client %>
+  <% end %>
+
+  <% if localFlight.aircraft.present? %>
+    on <%= Aircraft.find(localFlight.aircraft).tailNumber %>
   <% end %>
 </h4>
 
