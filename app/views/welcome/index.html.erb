@@ -29,7 +29,7 @@
 
   <% if user_signed_in? %>
 
-    <% @debriefs = Debrief.includes(:flight).order("flights.created_at").reverse %>
+    <% @debriefs = Debrief.where(finish_later: nil).includes(:flight).order("flights.created_at").reverse %>
     <%= render 'debriefs/index' %>
 
   <% end %>

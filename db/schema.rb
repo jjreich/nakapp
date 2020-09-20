@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200919204334) do
+ActiveRecord::Schema.define(version: 20200920162014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20200919204334) do
     t.integer "maintenance_rating"
     t.boolean "maintenance_check"
     t.text "maintenance_comments"
+    t.boolean "finish_later"
     t.index ["flight_id"], name: "index_debriefs_on_flight_id"
     t.index ["user_id"], name: "index_debriefs_on_user_id"
   end

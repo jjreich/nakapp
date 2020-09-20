@@ -1,5 +1,7 @@
 <h1>Editing Debrief</h1>
 
+<% @flight = Flight.find(@debrief.flight_id) %>
+
 <%= render 'form', debrief: @debrief %>
 
 <%= link_to 'Show', @debrief %> |

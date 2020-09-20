@@ -4,7 +4,6 @@ class DebriefsController < ApplicationController
   # GET /debriefs
   # GET /debriefs.json
   def index
-    @debriefs = Debrief.includes(:flight).order("flights.created_at").reverse
   end
 
   # GET /debriefs/1
@@ -13,7 +12,6 @@ class DebriefsController < ApplicationController
     @debrief.comments.each do |comment|
       ViewedDebrief.create :user_id => current_user.id, :debrief_id => @debrief.id
     end    
-    @debriefs = Debrief.includes(:flight).order("flights.created_at").reverse
   end
 
   # GET /debriefs/new
@@ -31,13 +29,23 @@ class DebriefsController < ApplicationController
 
   # GET /debriefs/1/edit
   def edit
+    @flights = Flight.all
+    @departuretypes = Departuretype.all
+    @arrivaltypes = Arrivaltype.all
+    @airborneflightdelays = Airborneflightdelay.all
+    @airborneflightcheckins = Airborneflightcheckin.all
+    @flightTurbulences = FlightTurbulence.all
   end
 
   # POST /debriefs
   # POST /debriefs.json
   def create
     @debrief = Debrief.new(debrief_params)
-    @debriefs = Debrief.all
+    if params[:commit] == "Save for later"
+      @debrief.finish_later = true
+    else 
+      @debrief.finish_later = nil
+    end
 
     respond_to do |format|
       if @debrief.save
@@ -54,7 +62,11 @@ class DebriefsController < ApplicationController
   # PATCH/PUT /debriefs/1
   # PATCH/PUT /debriefs/1.json
   def update
-    @debriefs = Debrief.all
+    if params[:commit] == "Save for later"
+      @debrief.finish_later = true
+    else 
+      @debrief.finish_later = nil
+    end    
 
     respond_to do |format|
       if @debrief.update(debrief_params)
@@ -86,6 +98,6 @@ class DebriefsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def debrief_params
-      params.require(:debrief).permit(:flightNumber, :preparationRating, :preparationComments, :cateringStatus, :cateringRating, :cateringComments, :clientArrivalTiming, :clientArrivalType, :clientArrivalComments, :flightTurbulence, :airborneFlightDelays, :airborneFlightCheckins, :flightComments, :clientDepartureType, :clientDepartureComments, :overallComments, :user_id, :flight_id, :client_arrival_rating, :airborne_rating, :client_departure_rating, :maintenance_rating, :maintenance_check, :maintenance_comments)
+      params.require(:debrief).permit(:flightNumber, :preparationRating, :preparationComments, :cateringStatus, :cateringRating, :cateringComments, :clientArrivalTiming, :clientArrivalType, :clientArrivalComments, :flightTurbulence, :airborneFlightDelays, :airborneFlightCheckins, :flightComments, :clientDepartureType, :clientDepartureComments, :overallComments, :user_id, :flight_id, :client_arrival_rating, :airborne_rating, :client_departure_rating, :maintenance_rating, :maintenance_check, :maintenance_comments, :finish_later)
     end
 end
