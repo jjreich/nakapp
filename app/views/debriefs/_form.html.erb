@@ -313,6 +313,69 @@
     };
   });
 
+  $(document).ready(function() {
+    var selectedCssClass = 'selected';
+    var typeRating = "#preparationRating" + $("#debrief_preparationRating").val();
+    var ratingString = typeRating.slice(-1);
+    var ratingValue = parseInt(ratingString);
+    var ratingClass = "#debrief_" + typeRating.slice(0,-1);
+    $(typeRating).siblings('.' + selectedCssClass).removeClass(selectedCssClass);
+    $(typeRating)
+      .addClass(selectedCssClass)
+      .parent().addClass('is-voted');
+    $(ratingClass).val(ratingValue);
+
+    var typeRating = "#cateringRating" + $("#debrief_cateringRating").val();
+    var ratingString = typeRating.slice(-1);
+    var ratingValue = parseInt(ratingString);
+    var ratingClass = "#debrief_" + typeRating.slice(0,-1);
+    $(typeRating).siblings('.' + selectedCssClass).removeClass(selectedCssClass);
+    $(typeRating)
+      .addClass(selectedCssClass)
+      .parent().addClass('is-voted');
+    $(ratingClass).val(ratingValue);
+
+    var typeRating = "#client_arrival_rating" + $("#debrief_client_arrival_rating").val();
+    var ratingString = typeRating.slice(-1);
+    var ratingValue = parseInt(ratingString);
+    var ratingClass = "#debrief_" + typeRating.slice(0,-1);
+    $(typeRating).siblings('.' + selectedCssClass).removeClass(selectedCssClass);
+    $(typeRating)
+      .addClass(selectedCssClass)
+      .parent().addClass('is-voted');
+    $(ratingClass).val(ratingValue);
+
+    var typeRating = "#airborne_rating" + $("#debrief_airborne_rating").val();
+    var ratingString = typeRating.slice(-1);
+    var ratingValue = parseInt(ratingString);
+    var ratingClass = "#debrief_" + typeRating.slice(0,-1);
+    $(typeRating).siblings('.' + selectedCssClass).removeClass(selectedCssClass);
+    $(typeRating)
+      .addClass(selectedCssClass)
+      .parent().addClass('is-voted');
+    $(ratingClass).val(ratingValue);
+
+    var typeRating = "#client_departure_rating" + $("#debrief_client_departure_rating").val();
+    var ratingString = typeRating.slice(-1);
+    var ratingValue = parseInt(ratingString);
+    var ratingClass = "#debrief_" + typeRating.slice(0,-1);
+    $(typeRating).siblings('.' + selectedCssClass).removeClass(selectedCssClass);
+    $(typeRating)
+      .addClass(selectedCssClass)
+      .parent().addClass('is-voted');
+    $(ratingClass).val(ratingValue);
+
+    var typeRating = "#maintenance_rating" + $("#debrief_maintenance_rating").val();
+    var ratingString = typeRating.slice(-1);
+    var ratingValue = parseInt(ratingString);
+    var ratingClass = "#debrief_" + typeRating.slice(0,-1);
+    $(typeRating).siblings('.' + selectedCssClass).removeClass(selectedCssClass);
+    $(typeRating)
+      .addClass(selectedCssClass)
+      .parent().addClass('is-voted');
+    $(ratingClass).val(ratingValue);
+  });
+
 
   $( "#debrief_maintenance_check" ).on('click', function() {
     if ($( "#debrief_maintenance_check" ).is(':checked') ) {
