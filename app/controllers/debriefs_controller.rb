@@ -20,7 +20,7 @@ class DebriefsController < ApplicationController
   def new
 
     @debrief = Debrief.new(:user_id => current_user.id, :flight_id => params[:flight_id])
-
+    @flight = Flight.find(params[:flight_id])
     @flights = Flight.all
     @departuretypes = Departuretype.all
     @arrivaltypes = Arrivaltype.all
