@@ -1,8 +1,9 @@
-<h1>Editing Debrief</h1>
+<h1>Editing Flight #<%= @debrief.flight.flightNumber %> Debrief</h1>
+
+<button class="close-button" data-close aria-label="Close modal" type="button">
+  <span aria-hidden="true">&times;</span>
+</button>
 
 <% @flight = Flight.find(@debrief.flight_id) %>
 
 <%= render 'form', debrief: @debrief %>
-
-<%= link_to 'Show', @debrief %> |
-<%= link_to 'Back', debriefs_path %>
