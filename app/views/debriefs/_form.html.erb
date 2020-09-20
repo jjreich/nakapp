@@ -1,4 +1,6 @@
-
+<% if @debrief.clientArrivalTiming.present? %>
+  <% arrivalTimingInitialization = @debrief.clientArrivalTiming %>
+<% end %>
 <%= simple_form_for(@debrief, :html=>{:remote => true}) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -139,7 +141,7 @@
           <%= f.input :clientArrivalTiming, label: 'Client Arrival Timing' %>
         </div>
         <div class="cell small-7">
-          <div class="slider" data-slider data-initial-start="0" data-start="-60" data-end="60">
+          <div class="slider" data-slider data-initial-start="<%= arrivalTimingInitialization %>" data-start="-60" data-end="60">
             <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="debrief_clientArrivalTiming"></span>
             <span class="slider-fill" data-slider-fill></span>
           </div>
@@ -374,6 +376,20 @@
       .addClass(selectedCssClass)
       .parent().addClass('is-voted');
     $(ratingClass).val(ratingValue);
+
+    if ($( "#debrief_maintenance_check" ).is(':checked') ) {
+      $( "#maintenance_block" ).removeClass( "hide" ).addClass( "show" );
+    }
+    else {
+      $( "#maintenance_block" ).removeClass( "show" ).addClass( "hide" );
+    };
+
+    if ($( "#debrief_cateringStatus" ).is(':checked') ) {
+      $( "#catering_block" ).removeClass( "hide" ).addClass( "show" );
+    }
+    else {
+      $( "#catering_block" ).removeClass( "show" ).addClass( "hide" );
+    };
   });
 
 
