@@ -24,6 +24,13 @@
   <% end %>
 </h5>
 
+<h6>
+  Captain <%=User.find(@flight.pic).fullName %> and First Officer <%=User.find(@flight.sic).fullName %>
+</h6>
+
+
+<hr/>
+
 <% if @flight.revenue_test == true %>
   <h6>
     Member: 
