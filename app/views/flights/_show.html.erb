@@ -5,12 +5,17 @@
 </button>
 
 <div class="grid-x grid-padding-x">
-  <div class="cell small-12 text-center">
+  <div class="cell small-2 text-center">
+    <%= image_tag("Phenom300.png") %>
+  </div>
+  <div class="cell small-10 text-center">
     <h3>
       Flight #<%= @flight.flightNumber %> - <%= @flight.dateOfFlight %>
     </h3>
   </div>
 </div>
+
+<hr/>
 
 <h5>
   <%= @flight.departureAirfield %> - <%= @flight.arrivalAirfield %>
