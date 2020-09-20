@@ -49,6 +49,12 @@ class Debrief < ApplicationRecord
 
 		star_rating_value = overall_rating.divmod 1
 
-	end			
+	end	
+
+	def star_rating_remainder
+
+		star_rating_remainder = overall_rating.modulo(1)
+
+	end	
 
 end

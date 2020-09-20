@@ -27,6 +27,20 @@
           <i style="color:<%= starColorPrep %>;" class="fa fa-star"></i>
           <% n += 1 %>
         <% end %>
+        <% if @debrief.star_rating_remainder < 0.5 %>
+          <% numerator = 1 %>
+          <% denominator = 4 %>
+        <% elsif @debrief.star_rating_remainder < 0.75 %>
+          <% numerator = 1 %>
+          <% denominator = 2 %>
+        <% elsif @debrief.star_rating_remainder < 0.99 %>
+          <% numerator = 3 %>
+          <% denominator = 4 %> 
+        <% end %>
+        <% if @debrief.star_rating_remainder == 0 %>
+        <% else %>
+          <span style="color:<%= starColorPrep %>;"><sup><%= numerator %></sup>&frasl;<sub><%= denominator %></sub></span>
+        <% end %>
     </h3>
   </div>
 </div>
