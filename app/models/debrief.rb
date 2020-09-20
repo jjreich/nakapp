@@ -4,7 +4,6 @@ class Debrief < ApplicationRecord
 	has_many :comments
   	has_many :viewed_debriefs
 
-
 	def overall_rating
 
 	  ratingsum = 0
