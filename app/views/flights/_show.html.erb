@@ -10,7 +10,7 @@
   </div>
   <div class="cell small-10 text-center">
     <h3>
-      Flight #<%= @flight.flightNumber %> - <%= @flight.dateOfFlight %>
+      Flight #<%= @flight.flightNumber %> - <%= @flight.dateOfFlight.strftime ("%b %d") %>
     </h3>
   </div>
 </div>
