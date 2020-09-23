@@ -351,3 +351,13 @@ Posted by
 <%= link_to 'Edit', edit_debrief_path(@debrief) %> |
 
 -->
+
+<% if current_user.has_role? :admin %>
+  <% debriefViews = ViewedDebrief.where(:debrief_id => @debrief.id) %>
+  <% debriefViews.distinct(:user_id).pluck(:user_id).each do |userID| %>
+
+    <p>
+      <%= User.find(userID).fullName %> - <%= ViewedDebrief.where(:user_id => userID, :debrief_id => @debrief.id).last.created_at %>
+    </p>
+  <% end %>
+<% end %>
