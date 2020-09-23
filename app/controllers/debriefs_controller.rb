@@ -9,9 +9,7 @@ class DebriefsController < ApplicationController
   # GET /debriefs/1
   # GET /debriefs/1.json
   def show
-    @debrief.comments.each do |comment|
-      ViewedDebrief.create :user_id => current_user.id, :debrief_id => @debrief.id
-    end    
+    ViewedDebrief.create :user_id => current_user.id, :debrief_id => params[:id]    
   end
 
   # GET /debriefs/new
