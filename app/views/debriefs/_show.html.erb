@@ -8,7 +8,8 @@
 
 <div class="grid-x grid-padding-x">
   <div class="cell small-6 small-offset-3 medium-4 medium-offset-4 large-2 large-offset-5">
-    <%= image_tag("Phenom300.png") %>
+    <% imageName = Aircraft.find(localFlight.aircraft).aircraftType + ".png" %>
+    <%= image_tag(imageName) %>
   </div>
   <div class="cell small-12 text-center">
     <h3>
