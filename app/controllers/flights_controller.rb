@@ -17,7 +17,7 @@ class FlightsController < ApplicationController
     @flight = Flight.new
     @airfields = Airfield.all
     @pilots = User.pilots.all
-    @aircrafts = Aircraft.all
+    @aircrafts = Aircraft.all.order(:tailNumber)
   end
 
   # GET /flights/1/edit
