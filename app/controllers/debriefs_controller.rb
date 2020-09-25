@@ -1,9 +1,12 @@
 class DebriefsController < ApplicationController
   before_action :set_debrief, only: [:show, :edit, :update, :destroy]
 
+  respond_to :html, :js
+
   # GET /debriefs
   # GET /debriefs.json
   def index
+    @debriefs = Debrief.where(finish_later: nil).includes(:flight).order("flights.created_at").reverse
   end
 
   # GET /debriefs/1

@@ -47,11 +47,11 @@
 <div class="text-right">
   <% if @flight.debrief.present? && @flight.debrief.finish_later == nil %>
   	<% debrief = @flight.debrief %>
-  	<%= link_to "Debrief", debrief, :remote => true, class: "button" %> 
+  	<%= link_to "Debrief", debrief, :remote => true, class: "hollow button" %> 
   <% elsif @flight.debrief.present? && @flight.debrief.finish_later == true && @flight.debrief.user_id == current_user.id %>
-    <%= link_to 'Edit Debrief', edit_debrief_path(@flight.debrief), :remote => true, class: "button" %>
+    <%= link_to 'Edit Debrief', edit_debrief_path(@flight.debrief), :remote => true, class: "hollow button" %>
   <% elsif (@flight.pic.to_i == current_user.id || @flight.sic.to_i == current_user.id) && !(@flight.debrief.present?) %>
-  	<%= link_to 'New Debrief', new_debrief_path(:flight_id => @flight.id), :remote => true, class: "button" %>
+  	<%= link_to 'New Debrief', new_debrief_path(:flight_id => @flight.id), :remote => true, class: "hollow button" %>
   <% end %>
 </div>
 
