@@ -3,29 +3,60 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-
-
   <div class="form-inputs">
-    <% if @editTest == false %>
-      <%= f.input :flightNumber, label: 'Flight Number' %>
-    <% else %> 
-      <%= f.hidden_field :flightNumber %>
-    <% end %>
-    <%= f.input :dateOfFlight, label: 'Date of Flight' %>
-    <%= f.input :aircraft, collection: @aircrafts, label_method: :tailNumber, label: 'Aircraft Tail Number' %>
-    <%= f.input :pic, collection: @pilots, label_method: :fullName, label: 'Captain' %>
-    <%= f.input :sic, collection: @pilots, label_method: :fullName, label: 'First Officer' %>
-    <%= f.input :departureAirfield, label: 'Departing Airfield - ICAO' %>
-    <%= f.input :arrivalAirfield, label: 'Arriving Airfield - ICAO' %>
-    <%= f.input :revenue_test, label: 'Check if a revenue flight' %>
-    <div class="hide" id="client_status">
-      <%= f.input :client, label: 'Booking Member' %>
+    <div class="grid-x grid-padding-x">
+      <div class="cell small-6">
+        <% if @editTest == false %>
+          <%= f.input :flightNumber, label: 'Flight Number' %>
+        <% else %> 
+          <%= f.hidden_field :flightNumber %>
+        <% end %>
+      </div>
+      <div class="cell small-6">
+        <%= f.input :aircraft, collection: @aircrafts, label_method: :tailNumber, label: 'Aircraft Tail Number' %>
+      </div>
     </div>
+    <div class="grid-x grid-padding-x">
+      <div class="cell small-12">
+        <%= f.input :dateOfFlight, label: 'Date of Flight' %>
+      </div>
+    </div>
+    <div class="grid-x grid-padding-x">
+      <div class="cell small-6">
+        <%= f.input :pic, collection: @pilots, label_method: :fullName, label: 'Captain' %>
+      </div>
+      <div class="cell small-6">
+        <%= f.input :sic, collection: @pilots, label_method: :fullName, label: 'First Officer' %>
+      </div>
+    </div>
+    <div class="grid-x grid-padding-x">
+      <div class="cell small-6">
+        <%= f.input :departureAirfield, label: 'Departing Airfield - ICAO' %>
+      </div>
+      <div class="cell small-6">
+        <%= f.input :arrivalAirfield, label: 'Arriving Airfield - ICAO' %>
+      </div>
+    </div>
+
+    <div class="grid-x grid-padding-x">
+      <div class="cell small-12">
+        <%= f.input :revenue_test, label: 'Check if a revenue flight' %>
+        <div class="hide" id="client_status">
+          <%= f.input :client, label: 'Booking Member' %>
+        </div>
+      </div>
+    </div>  
+
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <div class="grid-x grid-padding-x">
+    <div class="cell small-12">
+      <div class="form-actions">
+        <%= f.button :submit, "Submit" %>
+      </div>
+    </div>
+  </div> 
+
 <% end %>
 
 <script>
