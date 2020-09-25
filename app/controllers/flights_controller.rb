@@ -1,10 +1,12 @@
 class FlightsController < ApplicationController
   before_action :set_flight, only: [:show, :edit, :update, :destroy]
 
+  respond_to :html, :js
+
   # GET /flights
   # GET /flights.json
   def index
-    @flights = Flight.all.order(:dateOfFlight).reverse
+    @flights = Flight.all.order(dateOfFlight: :desc).page params[:page]
   end
 
   # GET /flights/1

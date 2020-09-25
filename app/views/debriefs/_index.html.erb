@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <% @debriefs = Debrief.where(finish_later: nil).includes(:flight).order("flights.created_at").reverse %>
 
-<h3>Feedback/Debriefs</h3>
+<h2>Feedback/Debriefs</h2>
     
     <% @debriefs.each do |debrief| %>
     <% commentCount = Comment.where(:debrief_id => debrief.id).count %>
