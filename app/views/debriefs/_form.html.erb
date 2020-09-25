@@ -25,7 +25,7 @@
       <div class="cell small-12 large-6">
         <h4>
           Planning and Flight Preparation Rating
-          <i style="color:grey;" class="fa fa-info-circle"></i>
+          <i id="planningInfo" style="color:grey;" class="fa fa-info-circle" data-open="planningModal"></i>
         </h4>
         <%= f.hidden_field :preparationRating, label: 'Planning and Flight Preparation Rating' %>
       </div>
@@ -70,7 +70,7 @@
 
       <h4>
         Catering
-        <i style="color:grey;" class="fa fa-info-circle"></i>
+        <i id="cateringInfo" style="color:grey;" class="fa fa-info-circle" data-open="cateringModal"></i>
       </h4>
       <%= f.input :cateringStatus, label: 'Check if there was Catering for Passengers' %>
       <%= f.hidden_field :cateringRating %>
@@ -113,7 +113,7 @@
 
       <h4>
         Client Arrival Experience
-        <i style="color:grey;" class="fa fa-info-circle"></i>
+        <i id="arrivalInfo" style="color:grey;" class="fa fa-info-circle" data-open="arrivalModal"></i>
       </h4>
 
       <%= f.hidden_field :client_arrival_rating, label: 'Client Arrival Experience Rating' %>
@@ -321,6 +321,69 @@
   </div>
 
 <% end %>
+
+<div id="planningModal" class="reveal small" data-reveal>
+
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  <h4>Planning and Flight Preparation</h4>
+
+  <h6>Planning and preparation is feedback on how Team Blue and Flight Support prepared the Flight Crew for this flight.</h6>
+
+  <p><strong><i style="color:darkgreen;" class="fa fa-star"></i><i style="color:darkgreen;" class="fa fa-star"></i><i style="color:darkgreen;" class="fa fa-star"></i><i style="color:darkgreen;" class="fa fa-star"></i><i style="color:darkgreen;" class="fa fa-star"></i> for Exceptional Support</strong> - Either Team Blue and/or Flight Support went above and beyond preparing the Flight Crew to provide above and beyond support to the Member.  Flight crew should provide justification in the comments section for selecting 5 Stars.</p>
+
+  <p><strong><i style="color:green;" class="fa fa-star"></i><i style="color:green;" class="fa fa-star"></i><i style="color:green;" class="fa fa-star"></i><i style="color:green;" class="fa fa-star"></i> for Great Support</strong> - Team Blue and Flight Support did a great job planning this flight. Selecting 4 Stars doesn't require any additional comments, but comments/feedback are always encouraged.</p>
+
+  <p><strong><i style="color:orange;" class="fa fa-star"></i><i style="color:orange;" class="fa fa-star"></i><i style="color:orange;" class="fa fa-star"></i> for Good Support</strong> - There were small holes in the planning/preparation of the flight.  Selecting 3 Stars requires the Flight Crew to leave a comment to that clearly defines what was missing/wrong with the planning preparation of the flight.</p>
+
+  <p><strong><i style="color:red;" class="fa fa-star"></i><i style="color:red;" class="fa fa-star"></i> for Poor Support</strong> - There were significant mistakes in the planning and preparation of the flight.  Selecting 2 Stars requires the Flight Crew to leave a comment to that clearly defines what was missing/wrong with the planning preparation of the flight.</p>
+
+  <p><strong><i style="color:darkred;" class="fa fa-star"></i> for Unsatisfactory Support</strong> - There were gross errors in planning and preparation of the flight.  Selecting 1 Star requires the Flight Crew to leave a substantial comments that clearly justify what was missing/wrong with the planning preparation of the flight. Finally, 1 Star ratings should also include a phone call to Flight Support to discuss the issues.</p>  
+</div>
+
+<div id="cateringModal" class="reveal small" data-reveal>
+
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  <h4>Catering</h4>
+
+  <h6>Planning and preparation is feedback on how Team Blue and Flight Support prepared the Flight Crew for this flight.</h6>
+
+  <p><strong><i style="color:darkgreen;" class="fa fa-star"></i><i style="color:darkgreen;" class="fa fa-star"></i><i style="color:darkgreen;" class="fa fa-star"></i><i style="color:darkgreen;" class="fa fa-star"></i><i style="color:darkgreen;" class="fa fa-star"></i> for Exceptional Catering</strong> - Either Team Blue and/or Flight Support went above and beyond preparing the Flight Crew to provide above and beyond support to the Member.  Flight crew should provide justification in the comments section for selecting 5 Stars.</p>
+
+  <p><strong><i style="color:green;" class="fa fa-star"></i><i style="color:green;" class="fa fa-star"></i><i style="color:green;" class="fa fa-star"></i><i style="color:green;" class="fa fa-star"></i> for Great Catering</strong> - Team Blue and Flight Support did a great job planning this flight. Selecting 4 Stars doesn't require any additional comments, but comments/feedback are always encouraged.</p>
+
+  <p><strong><i style="color:orange;" class="fa fa-star"></i><i style="color:orange;" class="fa fa-star"></i><i style="color:orange;" class="fa fa-star"></i> for Good Catering</strong> - There were small holes in the planning/preparation of the flight.  Selecting 3 Stars requires the Flight Crew to leave a comment to that clearly defines what was missing/wrong with the planning preparation of the flight.</p>
+
+  <p><strong><i style="color:red;" class="fa fa-star"></i><i style="color:red;" class="fa fa-star"></i> for Poor Catering</strong> - There were significant mistakes in the planning and preparation of the flight.  Selecting 2 Stars requires the Flight Crew to leave a comment to that clearly defines what was missing/wrong with the planning preparation of the flight.</p>
+
+  <p><strong><i style="color:darkred;" class="fa fa-star"></i> for Unsatisfactory Catering</strong> - There were gross errors in planning and preparation of the flight.  Selecting 1 Star requires the Flight Crew to leave a substantial comments that clearly justify what was missing/wrong with the planning preparation of the flight. Finally, 1 Star ratings should also include a phone call to Flight Support to discuss the issues.</p>  
+</div>
+
+<div id="arrivalModal" class="reveal small" data-reveal>
+
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  <h4>Member Arrival Experience</h4>
+
+  <h6>Planning and preparation is feedback on how Team Blue and Flight Support prepared the Flight Crew for this flight.</h6>
+
+  <p><strong><i style="color:darkgreen;" class="fa fa-star"></i><i style="color:darkgreen;" class="fa fa-star"></i><i style="color:darkgreen;" class="fa fa-star"></i><i style="color:darkgreen;" class="fa fa-star"></i><i style="color:darkgreen;" class="fa fa-star"></i> for an Exceptional Arrival Member Experience</strong> - Either Team Blue and/or Flight Support went above and beyond preparing the Flight Crew to provide above and beyond support to the Member.  Flight crew should provide justification in the comments section for selecting 5 Stars.</p>
+
+  <p><strong><i style="color:green;" class="fa fa-star"></i><i style="color:green;" class="fa fa-star"></i><i style="color:green;" class="fa fa-star"></i><i style="color:green;" class="fa fa-star"></i> for a Great Arrival Member Experience</strong> - Team Blue and Flight Support did a great job planning this flight. Selecting 4 Stars doesn't require any additional comments, but comments/feedback are always encouraged.</p>
+
+  <p><strong><i style="color:orange;" class="fa fa-star"></i><i style="color:orange;" class="fa fa-star"></i><i style="color:orange;" class="fa fa-star"></i> for a Good Arrival Member Experience</strong> - There were small holes in the planning/preparation of the flight.  Selecting 3 Stars requires the Flight Crew to leave a comment to that clearly defines what was missing/wrong with the planning preparation of the flight.</p>
+
+  <p><strong><i style="color:red;" class="fa fa-star"></i><i style="color:red;" class="fa fa-star"></i> for a Poor Arrival Member Experience</strong> - There were significant mistakes in the planning and preparation of the flight.  Selecting 2 Stars requires the Flight Crew to leave a comment to that clearly defines what was missing/wrong with the planning preparation of the flight.</p>
+
+  <p><strong><i style="color:darkred;" class="fa fa-star"></i> for a Unsatisfactory Arrival Member Experience</strong> - There were gross errors in planning and preparation of the flight.  Selecting 1 Star requires the Flight Crew to leave a substantial comments that clearly justify what was missing/wrong with the planning preparation of the flight. Finally, 1 Star ratings should also include a phone call to Flight Support to discuss the issues.</p>  
+</div>
 
 <script>
   $('[data-rating] .star').on('click', function() {

@@ -219,7 +219,7 @@
 
   <p>
     <strong>Comments: </strong>
-    <% if @debrief.flightTurbulence == "1" %>
+    <% if FlightTurbulence.find(@debrief.flightTurbulence).turbulenceType == "None" %>
       There was no reportable turbulence on the flight.  
     <% else %>
       There was <%= FlightTurbulence.find(@debrief.flightTurbulence).turbulenceType %> on the flight.
@@ -234,7 +234,7 @@
     <% if Airborneflightcheckin.find(@debrief.airborneFlightCheckins).airborneflightcheckins == "None" %>
       There were no airborne checkins with the passengers on this flight.  
     <% else %>
-      There were <%= Airborneflightcheckin.find(@debrief.airborneFlightCheckins).airborneflightcheckins %>. 
+      <%= Airborneflightcheckin.find(@debrief.airborneFlightCheckins).airborneflightcheckins %>. 
     <% end %>
 
     <%= @debrief.flightComments %>
