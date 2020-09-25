@@ -17,51 +17,61 @@
     <hr>
 -->
     
-    <%= f.input :overallComments, label: 'Overall Comments' %>
+    <%= f.input :overallComments, label: 'Overall Comments', :input_html => {:rows => 4} %>
 
     <hr>
 
-    <h4>Planning and Flight Preparation Rating</h4>
-    <%= f.hidden_field :preparationRating, label: 'Planning and Flight Preparation Rating' %>
-
-
-    <div class="rating-block">
-      <div class="rating-block-rating" data-rating>
-        <div id="preparationRating1" class="star">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
-            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
-          </svg>
-        </div>
-        <div id="preparationRating2" class="star">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
-            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
-          </svg>
-        </div>
-        <div id="preparationRating3" class="star">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
-            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
-          </svg>
-        </div>
-        <div id="preparationRating4" class="star">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
-            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
-          </svg>
-        </div>
-        <div id="preparationRating5" class="star">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
-            <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
-          </svg>
+    <div class="grid-x grid-padding-x">
+      <div class="cell small-12 large-6">
+        <h4>
+          Planning and Flight Preparation Rating
+          <i style="color:grey;" class="fa fa-info-circle"></i>
+        </h4>
+        <%= f.hidden_field :preparationRating, label: 'Planning and Flight Preparation Rating' %>
+      </div>
+      <div class="cell small-12 large-6">
+        <div class="rating-block">
+          <div class="rating-block-rating" data-rating>
+            <div id="preparationRating1" class="star">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
+                <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+              </svg>
+            </div>
+            <div id="preparationRating2" class="star">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
+                <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+              </svg>
+            </div>
+            <div id="preparationRating3" class="star">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
+                <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+              </svg>
+            </div>
+            <div id="preparationRating4" class="star">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
+                <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+              </svg>
+            </div>
+            <div id="preparationRating5" class="star">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
+                <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <%= f.input :preparationComments, label: 'Comments' %>
+    <%= f.input :preparationComments, label: 'Comments', :input_html => {:rows => 2} %>
 
     <% if @flight.revenue_test == true %>
 
       <hr>
 
-      <h4>Catering</h4>
+      <h4>
+        Catering
+        <i style="color:grey;" class="fa fa-info-circle"></i>
+      </h4>
       <%= f.input :cateringStatus, label: 'Check if there was Catering for Passengers' %>
       <%= f.hidden_field :cateringRating %>
 
@@ -69,39 +79,42 @@
         <div class="rating-block">
           <div class="rating-block-rating" data-rating>
             <div id="cateringRating1" class="star">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
                 <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
               </svg>
             </div>
             <div id="cateringRating2" class="star">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
                 <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
               </svg>
             </div>
             <div id="cateringRating3" class="star">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
                 <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
               </svg>
             </div>
             <div id="cateringRating4" class="star">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
                 <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
               </svg>
             </div>
             <div id="cateringRating5" class="star">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
                 <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
               </svg>
             </div>
           </div>
         </div>
 
-        <%= f.input :cateringComments, label: 'Comments' %>
+        <%= f.input :cateringComments, label: 'Comments', :input_html => {:rows => 2} %>
       </div>
 
       <hr>
 
-      <h4>Client Arrival Experience</h4>
+      <h4>
+        Client Arrival Experience
+        <i style="color:grey;" class="fa fa-info-circle"></i>
+      </h4>
 
       <%= f.hidden_field :client_arrival_rating, label: 'Client Arrival Experience Rating' %>
 
@@ -109,27 +122,27 @@
       <div class="rating-block">
         <div class="rating-block-rating" data-rating>
           <div id="client_arrival_rating1" class="star">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
               <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
             </svg>
           </div>
           <div id="client_arrival_rating2" class="star">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
               <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
             </svg>
           </div>
           <div id="client_arrival_rating3" class="star">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
               <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
             </svg>
           </div>
           <div id="client_arrival_rating4" class="star">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
               <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
             </svg>
           </div>
           <div id="client_arrival_rating5" class="star">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
               <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
             </svg>
           </div>
@@ -149,11 +162,14 @@
       </div>
 
       <%= f.input :clientArrivalType, collection: @arrivaltypes, label_method: :arrivalTypes, label: 'How did the Client Arrive?' %>
-      <%= f.input :clientArrivalComments, label: 'Client Arrival Comments' %>
+      <%= f.input :clientArrivalComments, label: 'Client Arrival Comments', :input_html => {:rows => 2} %>
 
       <hr>
 
-      <h4>Airborne Feedback</h4>
+      <h4>
+        Airborne Feedback
+        <i style="color:grey;" class="fa fa-info-circle"></i>
+      </h4>
 
       <%= f.hidden_field :airborne_rating, label: 'Client Arrival Experience Rating' %>
 
@@ -161,27 +177,27 @@
       <div class="rating-block">
         <div class="rating-block-rating" data-rating>
           <div id="airborne_rating1" class="star">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
               <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
             </svg>
           </div>
           <div id="airborne_rating2" class="star">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
               <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
             </svg>
           </div>
           <div id="airborne_rating3" class="star">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
               <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
             </svg>
           </div>
           <div id="airborne_rating4" class="star">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
               <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
             </svg>
           </div>
           <div id="airborne_rating5" class="star">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
               <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
             </svg>
           </div>
@@ -200,38 +216,41 @@
       <%= f.input :flightTurbulence, collection: @flightTurbulences, label_method: :turbulenceType, :selected => tempTurbulence, label: 'Select the best depiction of any turbulence you experienced during flight.' %>
       <%= f.input :airborneFlightDelays, collection: @airborneflightdelays, label_method: :airborneFlightDelays, :selected => tempFlightDelays, label: 'Select any type of airborne delays that caused the flight to last longer than expected.' %>
       <%= f.input :airborneFlightCheckins, collection: @airborneflightcheckins, label_method: :airborneflightcheckins, :selected => tempFlightCheckins, label: 'Select how you checked in with the client airborne.'  %>
-      <%= f.input :flightComments, label: 'Flight Comments' %>
+      <%= f.input :flightComments, label: 'Flight Comments', :input_html => {:rows => 2} %>
 
       <hr>
 
-      <h4>Client Departure</h4>
+      <h4>
+        Client Departure
+        <i style="color:grey;" class="fa fa-info-circle"></i>
+      </h4>
       <%= f.hidden_field :client_departure_rating, label: 'Client Arrival Experience Rating' %>
 
 
       <div class="rating-block">
         <div class="rating-block-rating" data-rating>
           <div id="client_departure_rating1" class="star">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
               <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
             </svg>
           </div>
           <div id="client_departure_rating2" class="star">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
               <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
             </svg>
           </div>
           <div id="client_departure_rating3" class="star">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
               <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
             </svg>
           </div>
           <div id="client_departure_rating4" class="star">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
               <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
             </svg>
           </div>
           <div id="client_departure_rating5" class="star">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 40 37">
               <polygon fill="none" points="272 30 260.244 36.18 262.489 23.09 252.979 13.82 266.122 11.91 272 0 277.878 11.91 291.021 13.82 281.511 23.09 283.756 36.18" transform="translate(-252)"/>
             </svg>
           </div>
@@ -239,13 +258,16 @@
       </div>
       
       <%= f.input :clientDepartureType, collection: @departuretypes, label_method: :departureTypes, label: 'How did the client depart?' %>
-      <%= f.input :clientDepartureComments, label: 'Comments' %>
+      <%= f.input :clientDepartureComments, label: 'Comments', :input_html => {:rows => 2} %>
 
     <% end %>
 
     <hr>
 
-    <h4>Maintenance</h4>
+    <h4>
+      Maintenance
+      <i style="color:grey;" class="fa fa-info-circle"></i>
+    </h4>
     <%= f.input :maintenance_check, label: 'Check if there was any maintenance issues' %>
     <%= f.hidden_field :maintenance_rating %>
 
@@ -280,7 +302,7 @@
         </div>
       </div>
 
-      <%= f.input :maintenance_comments, label: 'Comments' %>
+      <%= f.input :maintenance_comments, label: 'Comments', :input_html => {:rows => 2} %>
     </div>
 
     <hr>
