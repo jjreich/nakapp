@@ -33,7 +33,8 @@ class FlightsController < ApplicationController
   # POST /flights.json
   def create
     @flight = Flight.new(flight_params)
-    @flights = Flight.all
+    @flights = Flight.all.order(dateOfFlight: :desc).page params[:page]
+
 
     respond_to do |format|
       if @flight.save
@@ -50,7 +51,7 @@ class FlightsController < ApplicationController
   # PATCH/PUT /flights/1
   # PATCH/PUT /flights/1.json
   def update
-    @flights = Flight.all
+    @flights = Flight.all.order(dateOfFlight: :desc).page params[:page]
     respond_to do |format|
       if @flight.update(flight_params)
         format.js 
