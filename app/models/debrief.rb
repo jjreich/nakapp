@@ -4,7 +4,7 @@ class Debrief < ApplicationRecord
 	has_many :comments
   	has_many :viewed_debriefs
 
-  	paginates_per 10
+  	paginates_per 7
 
 	def overall_rating
 
