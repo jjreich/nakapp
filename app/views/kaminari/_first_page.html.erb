@@ -1,3 +1,8 @@
-<li>
-  <%= link_to_unless current_page.first?, raw(t 'views.pagination.first'), url, :remote => remote %>
-</li>
+<% if current_page.first? %>
+	<li class="disabled">
+<% else %>
+	<li>
+<% end %>
+	  <%= link_to_unless current_page.first?, raw(t 'views.pagination.first'), url, :remote => remote %>
+	</li>
+	
