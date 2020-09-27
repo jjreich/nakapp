@@ -360,6 +360,4 @@ Posted by
       <%= User.find(userID).fullName %> - <%= ViewedDebrief.where(:user_id => userID, :debrief_id => @debrief.id).last.created_at %>
     </p>
   <% end %>
-
-  <i style="color:<%= starColorPrep %>;" data-tooltip tabindex="1" title="Fancy word for a beetle." class="fa fa-question"></i>
 <% end %>
