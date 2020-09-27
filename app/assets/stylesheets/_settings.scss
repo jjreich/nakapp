@@ -898,9 +898,6 @@ $mobile-app-icon-bar-bg: $white;
 $mobile-app-icon-bar-icon-size: 2rem;
 
 .mobile-app-icon-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   background: $mobile-app-icon-bar-bg;
 
   button {
@@ -915,5 +912,12 @@ $mobile-app-icon-bar-icon-size: 2rem;
       max-width: $mobile-app-icon-bar-icon-size;
     }
   }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100000;
 }
 

@@ -47,7 +47,7 @@
 <% if user_signed_in? %>
 
   <div id="applicationContent">
-    <%= render 'debriefs/index'%>
+
   </div>
 
 <% end %>
@@ -60,12 +60,19 @@
     
 </div>
 
-<div class="mobile-app-icon-bar">
-  <button><i class="fa fa-picture-o" aria-hidden="true"></i></button>
-  <button><i class="fa fa-map-marker" aria-hidden="true"></i></button>
-  <button><i class="fa fa-upload" aria-hidden="true"></i></button>
-  <button><i class="fa fa-list-ul" aria-hidden="true"></i></button>
-  <button><i class="fa fa-cog" aria-hidden="true"></i></button>
+<div class="show-small-only">
+  <div class="mobile-app-icon-bar footer">
+    <div class="grid-x grid-padding-x">
+      <div class="cell small-4">
+        <button><i class="fa fa-cog" aria-hidden="true"></i></button>
+      </div>
+      <div class="cell small-4">
+        <button><i class="fa fa-upload" aria-hidden="true"></i></button>
+      </div>
+      <div class="cell small-4">
+        <button><i class="fa fa-list-ul" aria-hidden="true"></i></button>
+      </div>    
+  </div>
 </div>
 
 
