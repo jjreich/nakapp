@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<% @debriefs = Debrief.where(finish_later: nil).includes(:flight).order("flights.created_at desc").page params[:page] %>
 
 <h2>Feedback/Debriefs</h2>
 
