@@ -7,6 +7,12 @@
     <tr>
       <th>Full Name</th>
       <th>Email</th>
+      <th>Pilot</th>
+      <th>Ops</th>
+      <th>Maint</th>
+      <th>Team Blue</th>
+      <th>Flight Support</th>
+      <th>Admin</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,8 +22,14 @@
       <tr>
         <td><%= user.fullName %></td>
         <td><%= user.email %></td>
+        <td><%= user.pilot_role %></td>
+        <td><%= user.ops_role %></td>
+        <td><%= user.maint_role %></td>
+        <td><%= user.team_blue_role %></td>
+        <td><%= user.flight_support_role %></td>
+        <td><%= user.admin_role %></td>
         <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Edit', edit_user_path(user), remote: true %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

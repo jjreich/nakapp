@@ -1,0 +1,17 @@
+<%= simple_form_for(@user, :html=>{:remote => true}) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :pilot_role %>
+    <%= f.input :ops_role %>
+    <%= f.input :maint_role %>
+    <%= f.input :team_blue_role %>
+    <%= f.input :flight_support_role %>
+    <%= f.input :admin_role %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
