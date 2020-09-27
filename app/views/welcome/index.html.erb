@@ -18,7 +18,7 @@
         <li><%= link_to "Debriefs", debriefs_path, :class => "", remote: true %></li>
         <% if current_user.has_role? :admin %>
           <li><%= link_to "Aircraft", aircrafts_path, :class => "", remote: true %></li>
-          <li><%= link_to "Users", aircrafts_path, :class => "", remote: true %></li>
+          <li><%= link_to "Users", users_path, :class => "", remote: true %></li>
           <li><%= link_to "Dropdowns", "#", :class => "" %>
             <ul class="dropdown menu">
               <li><%= link_to "Arrival Types", arrivaltypes_path, :class => "" %></li>
