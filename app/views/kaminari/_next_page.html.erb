@@ -1,19 +1,28 @@
-<% if current_page.last? %>
-	<li class="disabled">
-<% else %>
-	<li>
-<% end %>
-	<% if url.include? "debriefs" %>
-		<% url.slice! "/debriefs" %>
-		<% if url[0] == "/" %>
+<% if url.include? "debriefs" %>
+	<% url.slice! "/debriefs" %>
+	<% if url[0] == "/" %>
+		<% url = url[1..-1] %>
+		<% while url.start_with?(*('0'..'9')) do %>
 			<% url = url[1..-1] %>
-			<% while url.start_with?(*('0'..'9')) do %>
-				<% url = url[1..-1] %>
-			<% end %>
 		<% end %>
-		<% url = "/debriefs" + url %>
 	<% end %>
- 
-	  <%= link_to_unless current_page.last?, raw(t 'views.pagination.next'), url, :rel => 'next', :remote => remote %>
+	<% url = "/debriefs" + url %>
+<% end %>
 
+<% if current_page.last? %>
+	<li class="disabled show-for-medium">
+<% else %>
+	<li class="show-for-medium">
+<% end %>
+	  <%= link_to_unless current_page.last?, raw(t 'views.pagination.next'), url, :rel => 'next', :remote => remote %>
 	</li>
+
+<li class="show-for-small-only">
+  	  <% if current_page.last? %>
+  	  		<i class="fa fa-step-forward fa-2x disabled" aria-hidden="true"></i>
+  	  <% else %>
+  	  	<%= link_to url, :rel => 'next', :remote => remote do %>
+  			<i class="fa fa-step-forward fa-2x" aria-hidden="true"></i>
+  		<% end %>
+  	  <% end %>
+</li>

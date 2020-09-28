@@ -567,7 +567,7 @@ $pagination-item-color-disabled: $medium-gray;
 $pagination-ellipsis-color: $black;
 $pagination-mobile-items: true;
 $pagination-mobile-current-item: false;
-$pagination-arrows: true;
+$pagination-arrows: false;
 $pagination-arrow-previous: '\00AB';
 $pagination-arrow-next: '\00BB';
 
@@ -929,6 +929,22 @@ $mobile-app-icon-bar-icon-size: 2rem;
   z-index: 1;
   padding-left: 0.625rem;
   padding-right: 0.625rem;
+}
+
+.fa-step-backward {
+  color: #1779ba;
+}
+
+.fa-step-backward:hover{
+  color:white;
+}
+
+.fa-step-forward {
+  color: #1779ba;
+}
+
+.fa-step-forward:hover{
+  color:white;
 }
 
 .smallHeader {
