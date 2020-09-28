@@ -894,7 +894,7 @@ $grid-container-max: $global-width;
 $xy-block-grid-max: 8;
 
 
-$mobile-app-icon-bar-bg: $white;
+$mobile-app-icon-bar-bg: $primary-color;
 $mobile-app-icon-bar-icon-size: 2rem;
 
 .mobile-app-icon-bar {
@@ -910,6 +910,12 @@ $mobile-app-icon-bar-icon-size: 2rem;
       font-size: $mobile-app-icon-bar-icon-size;
       max-height: $mobile-app-icon-bar-icon-size;
       max-width: $mobile-app-icon-bar-icon-size;
+      color: white;
+    }
+
+    span {
+      color: white;
+      font-size: 1rem;
     }
   }
 }
@@ -917,7 +923,18 @@ $mobile-app-icon-bar-icon-size: 2rem;
 .footer {
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
-  z-index: 100000;
+  height: 100px;
+  z-index: 1;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
+
+.header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
 }
 
