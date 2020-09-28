@@ -3,5 +3,13 @@
 <% else %>
 	<li>
 <% end %>
+	  <% url.slice! "/debriefs" %>
+	  <% if url[0] == "/" %>
+	  	<% url = url[1..-1] %>
+	  	<% while url.start_with?(*('0'..'9')) do %>
+	  		<% url = url[1..-1] %>
+	  	<% end %>
+	  <% end %>
+	  <% url = "/debriefs" + url %>
 	  <%= link_to_unless current_page.last?, raw(t 'views.pagination.last'), url, {:remote => remote} %>
 	</li>
