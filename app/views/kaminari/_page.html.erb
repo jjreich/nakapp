@@ -1,11 +1,13 @@
 <li class="<%= 'current' if page.current? %>">
-	<% url.slice! "/debriefs" %>
-	<% if url[0] == "/" %>
-		<% url = url[1..-1] %>
-		<% while url.start_with?(*('0'..'9')) do %>
+	<% if url.include? "debriefs" %>
+		<% url.slice! "/debriefs" %>
+		<% if url[0] == "/" %>
 			<% url = url[1..-1] %>
+			<% while url.start_with?(*('0'..'9')) do %>
+				<% url = url[1..-1] %>
+			<% end %>
 		<% end %>
+		<% url = "/debriefs" + url %>
 	<% end %>
-	<% url = "/debriefs" + url %>
   <%= link_to page, page.current? ? '#' : url, {:remote => remote, :rel => page.rel, class: "hollow" } %>
 </li>
