@@ -951,8 +951,28 @@ $mobile-app-icon-bar-icon-size: 2rem;
   z-index: 1;
 }
 
+#add_flight_link {
+  background-color: #1779ba;
+}
+
 #applicationContent {
   height: calc(100%-150px);
+}
+
+#debriefs_link {
+  background-color: #1779ba;
+}
+
+#flights_link {
+  background-color: #1779ba;
+}
+
+#login_link {
+  background-color: #1779ba;
+}
+
+#logout_link {
+  background-color: #1779ba;
 }
 
 #mediumTopBar {

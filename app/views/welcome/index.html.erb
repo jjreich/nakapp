@@ -57,23 +57,23 @@
           <div class="grid-x grid-padding-x"> 
             <% if user_signed_in? %>
               <div class="cell small-4 text-center">    
-                <%= link_to flights_path, remote: true do %> 
+                <%= link_to flights_path, :id => 'flights_link', remote: true do %> 
                   <button><i class="fa fa-plane" aria-hidden="true"></i><br><span>Flights</span></button>
                 <% end %>
               </div>
               <div class="cell small-4 text-center">
-                <%= link_to debriefs_path, remote: true do %>
+                <%= link_to debriefs_path, :id => 'debriefs_link', remote: true do %>
                   <button><i class="fa fa-inbox" aria-hidden="true"></i><br><span>Debriefs</span></button>
                 <% end %>
               </div>
               <div class="cell small-4 text-center">
-                <%= link_to destroy_user_session_path, :method => :delete do %>
+                <%= link_to destroy_user_session_path, :id => 'logout_link', :method => :delete do %>
                   <button><i class="fa fa-sign-out" aria-hidden="true"></i><br><span>Logout</span></button>
                 <% end %>
               </div>
             <% else %>
               <div class="cell small-12 text-center">
-                <%= link_to new_user_session_path do %>
+                <%= link_to new_user_session_path, :id => 'login_link' do %>
                   <button><i class="fa fa-sign-in" aria-hidden="true"></i><br><span>Login</span></button>
                 <% end %>
               </div>
