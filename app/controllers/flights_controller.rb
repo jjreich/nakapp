@@ -18,7 +18,7 @@ class FlightsController < ApplicationController
   def new
     @flight = Flight.new
     @airfields = Airfield.all
-    @pilots = User.pilots.all
+    @pilots = User.pilots.all.order(:firstName)
     @aircrafts = Aircraft.all.order(:tailNumber)
   end
 
