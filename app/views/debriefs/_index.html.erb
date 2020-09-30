@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<% @debriefs = Debrief.where(finish_later: nil).includes(:flight).order("flights.created_at desc").page params[:page] %>
-
 <div class="grid-x grid-padding-x">
   <div class="cell small-6 text-left">
     <h1>Feedback/Debriefs</h1>

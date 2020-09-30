@@ -42,6 +42,7 @@ class DebriefsController < ApplicationController
   # POST /debriefs.json
   def create
     @debrief = Debrief.new(debrief_params)
+    @debriefs = Debrief.where(finish_later: nil).includes(:flight).order("flights.created_at desc").page params[:page]
     if params[:commit] == "Save for later"
       @debrief.finish_later = true
     else 
