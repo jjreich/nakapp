@@ -1,24 +1,22 @@
 class DebriefsController < ApplicationController
   before_action :set_debrief, only: [:show, :edit, :update, :destroy]
+  before_action :set_debriefs, only: [:index, :show, :create, :update]
 
   respond_to :html, :js
 
   # GET /debriefs
   # GET /debriefs.json
   def index
-    @debriefs = Debrief.where(finish_later: nil).includes(:flight).order("flights.created_at desc").page params[:page]
   end
 
   # GET /debriefs/1
   # GET /debriefs/1.json
   def show
     ViewedDebrief.create :user_id => current_user.id, :debrief_id => params[:id] 
-    @debriefs = Debrief.where(finish_later: nil).includes(:flight).order("flights.created_at desc").page params[:page]   
   end
 
   # GET /debriefs/new
   def new
-
     @debrief = Debrief.new(:user_id => current_user.id, :flight_id => params[:flight_id])
     @flight = Flight.find(params[:flight_id])
     @flights = Flight.all
@@ -43,7 +41,6 @@ class DebriefsController < ApplicationController
   # POST /debriefs.json
   def create
     @debrief = Debrief.new(debrief_params)
-    @debriefs = Debrief.where(finish_later: nil).includes(:flight).order("flights.created_at desc").page params[:page]
     if params[:commit] == "Save for later"
       @debrief.finish_later = true
     else 
@@ -97,6 +94,10 @@ class DebriefsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_debrief
       @debrief = Debrief.find(params[:id])
+    end
+
+    def set_debriefs
+      @debriefs = Debrief.where(finish_later: nil).includes(:flight).order("flights.created_at desc").page params[:page]
     end
 
     # Only allow a list of trusted parameters through.
