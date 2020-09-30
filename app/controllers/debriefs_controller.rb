@@ -12,7 +12,8 @@ class DebriefsController < ApplicationController
   # GET /debriefs/1
   # GET /debriefs/1.json
   def show
-    ViewedDebrief.create :user_id => current_user.id, :debrief_id => params[:id]    
+    ViewedDebrief.create :user_id => current_user.id, :debrief_id => params[:id] 
+    @debriefs = Debrief.where(finish_later: nil).includes(:flight).order("flights.created_at desc").page params[:page]   
   end
 
   # GET /debriefs/new
