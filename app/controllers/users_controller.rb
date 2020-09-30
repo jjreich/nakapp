@@ -11,6 +11,25 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
+	def new
+	  @user = User.new
+	end
+
+	def create
+	  @user = User.new(params[:user])
+
+		respond_to do |format|
+	      if @user.save
+	        format.js
+	        format.html { redirect_to @user, notice: 'User was successfully created.' }
+	        format.json { render :show, status: :created, location: @flight }
+	      else
+	        format.html { render :new }
+	        format.json { render json: @user.errors, status: :unprocessable_entity }
+	      end
+	    end
+	end
+
 	def update
 		@user = User.find(params[:id])
 		@users = User.all
@@ -29,6 +48,6 @@ class UsersController < ApplicationController
     private
 	    # Only allow a list of trusted parameters through.
 	    def user_params
-	      params.require(:user).permit(:email, :firstName, :lastName, :pilot_role, :ops_role, :maint_role, :team_blue_role, :flight_support_role, :admin_role)
+	      params.require(:user).permit(:email, :firstName, :lastName, :password, :pilot_role, :ops_role, :maint_role, :team_blue_role, :flight_support_role, :admin_role)
 	    end
 end
