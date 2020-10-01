@@ -1,6 +1,7 @@
+require 'elasticsearch/model'
+
 class Debrief < ApplicationRecord
-	require 'elasticsearch/model'
-	
+
 	belongs_to :user
 	belongs_to :flight
 	has_many :comments
