@@ -116,6 +116,9 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  Elasticsearch::Model.client = Elasticsearch::Client.new host: "https://paas:4a7a8799b472086e8c2233aa44871b3d@oin-us-east-1.searchly.com"
+  elasticsearch_url = ENV['SEARCHBOX_URL'] || ENV['SEARCHLY_URL'] ||
+      JSON.parse(ENV['VCAP_SERVICES']['searchly'][0]['credentials']['uri']) || 'http://site:xyz-searchly.com'
+
+  Elasticsearch::Model.client = Elasticsearch::Client.new host: elasticsearch_url
 
 end
