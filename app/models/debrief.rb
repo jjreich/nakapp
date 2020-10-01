@@ -8,6 +8,7 @@ class Debrief < ApplicationRecord
   	has_many :viewed_debriefs
 
     include Elasticsearch::Model
+    include Elasticsearch::Model::Callbacks
 
   	paginates_per 10
   
