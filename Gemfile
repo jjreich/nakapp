@@ -37,6 +37,9 @@ gem 'sendgrid-ruby'
 gem 'jquery-rails'
 gem 'simple_form'
 
+gem "elasticsearch-model"
+gem "elasticsearch-rails"
+
 gem 'foundation-rails'
 gem 'autoprefixer-rails'
 gem "font-awesome-rails"
