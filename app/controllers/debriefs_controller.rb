@@ -7,6 +7,9 @@ class DebriefsController < ApplicationController
   # GET /debriefs
   # GET /debriefs.json
   def index
+    if params[:query].present?
+      @debriefs = Debrief.search(params[:query]).records.page params[:page]
+    end
   end
 
   # GET /debriefs/1

@@ -1,0 +1,14 @@
+<button class="close-button" data-close aria-label="Close modal" type="button">
+  <span aria-hidden="true">&times;</span>
+</button>
+
+<br>
+<br>
+
+<%= form_tag debriefs_path, method: :get, remote: true do %>
+  <p>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", name: nil, :class => "button hollow" %>
+  </p>
+<% end %>
+
