@@ -4,37 +4,130 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.hidden_field :searchType %>
-    <%= f.input :fullTextSearch, label: 'Text Search' %>
-    <%= f.input :flightNumber, label: 'Flight Number' %>
-    <%= f.input :pic, collection: @pilots, label_method: :fullName, label: 'PIC' %>
-    <%= f.input :sic, collection: @pilots, label_method: :fullName, label: 'SIC' %>
-    <%= f.input :airfield, label: 'Airfield'  %>
-    <%= f.input :revenue, label: 'Was it a Revenue Flight?' %>
-    <%= f.hidden_field :memberName, label: 'Member Name' %>
-    <%= f.hidden_field :dateStart, label: 'Start Date' %>
-    <%= f.hidden_field :dateEnd, label: 'End Date' %>
-    <%= f.hidden_field :prepMin, collection: 1..5, label: 'Min' %>
-    <%= f.hidden_field :prepMax, collection: 1..5, label: 'Max' %>
-    <%= f.hidden_field :catering, label: 'Catering?' %>
-    <%= f.hidden_field :caterMin, collection: 1..5, label: 'Min' %>
-    <%= f.hidden_field :caterMax, collection: 1..5, label: 'Max' %>
-    <%= f.hidden_field :depMin, collection: 1..5, label: 'Min' %>
-    <%= f.hidden_field :depMax, collection: 1..5, label: 'Max' %>
-    <%= f.hidden_field :flightMin, collection: 1..5, label: 'Min' %>
-    <%= f.hidden_field :flightMax, collection: 1..5, label: 'Max' %>
-    <%= f.hidden_field :arrMin, collection: 1..5, label: 'Min' %>
-    <%= f.hidden_field :arrMax, collection: 1..5, label: 'Max' %>
-    <%= f.hidden_field :maint, label: 'Maint?' %>
-    <%= f.hidden_field :maintMin, collection: 1..5, label: 'Min' %>
-    <%= f.hidden_field :maintMax, collection: 1..5, label: 'Max' %>
+    <div class="grid-x grid-padding-x">
+      <div class="cell small-12 large-6">
+        <%= f.hidden_field :searchType %>
+        <%= f.input :fullTextSearch, label: 'Text Search' %>
+      </div>
+      <div class="cell small-12 large-6">
+        Advanced Search
+      </div>
+      <br>
+      <div class="cell small-6 large-3">
+        <%= f.input :flightNumber, label: 'Flight Number' %>
+      </div>
+      <div class="cell small-6 large-3">
+        <%= f.input :createdBy, collection: @pilots, label_method: :fullName, label: 'Created by?' %>
+      </div>
+      <div class="cell small-6 large-3">
+        <%= f.input :pic, collection: @pilots, label_method: :fullName, label: 'PIC' %>
+      </div>
+      <div class="cell small-6 large-3">
+        <%= f.input :sic, collection: @pilots, label_method: :fullName, label: 'SIC' %>
+      </div>
+      <div class="cell small-12">
+        <%= f.input :airfield, label: 'Airfield'  %>
+      </div>
+      <div class="cell small-12">
+        <%= f.input :revenue, label: 'Revenue Flight?' %>
+      </div>
+        <%= f.hidden_field :memberName, label: 'Member Name' %>
+        <%= f.hidden_field :dateStart, label: 'Start Date' %>
+        <%= f.hidden_field :dateEnd, label: 'End Date' %>
+      <div class="cell small-6">
+        <h3>Preparation / Planning Ratings</h3>
+      </div>
+      <div class="cell small-3">
+        <%= f.input :prepMin, collection: 1..5, label: 'Min' %>
+      </div>
+      <div class="cell small-3">
+        <%= f.input :prepMax, collection: 1..5, label: 'Max' %>
+      </div>
+      <div class="cell small-6">
+        <%= f.input :catering, label: 'Catering?' %>
+      </div>
+      <div class="cell small-6 fill_in">
 
+      </div>
+      <div class="cell small-3 hide catering_block">
+        <%= f.input :caterMin, collection: 1..5, label: 'Min' %>
+      </div>
+      <div class="cell small-3 hide catering_block">
+        <%= f.input :caterMax, collection: 1..5, label: 'Max' %>
+      </div>
+      <div class="cell small-6">
+        <h3>Client Arrival Ratings</h3>
+      </div>
+      <div class="cell small-3">
+        <%= f.input :arrMin, collection: 1..5, label: 'Min' %>
+      </div>
+      <div class="cell small-3">
+        <%= f.input :arrMax, collection: 1..5, label: 'Max' %>
+      </div>        
+      <div class="cell small-6">
+        <h3>In-Flight Ratings</h3>
+      </div>
+      <div class="cell small-3">
+        <%= f.input :flightMin, collection: 1..5, label: 'Min' %>
+      </div>
+      <div class="cell small-3">
+        <%= f.input :flightMax, collection: 1..5, label: 'Max' %>
+      </div>        
+      <div class="cell small-6">
+        <h3>Client Departure Ratings</h3>
+      </div>
+      <div class="cell small-3">
+        <%= f.input :depMin, collection: 1..5, label: 'Min' %>
+      </div>
+      <div class="cell small-3">
+        <%= f.input :depMax, collection: 1..5, label: 'Max' %>
+      </div> 
+      <div class="cell small-6">
+        <%= f.input :maint, label: 'Maintenance?' %>
+      </div>
+      <div class="cell small-3 hide maintenance_block">
+        <%= f.input :maintMin, collection: 1..5, label: 'Min' %>
+      </div>
+      <div class="cell small-3 hide maintenance_block">
+        <%= f.input :maintMax, collection: 1..5, label: 'Max' %>
+      </div>  
+
+        <%= f.hidden_field :hasComments, label: 'Has Comments?'  %>
     
-    <%= f.input :createdBy, collection: @pilots, label_method: :fullName, label: 'Created by?' %>
-    <%= f.hidden_field :hasComments, label: 'Has Comments?'  %>
+    </div>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Search" %>
   </div>
 <% end %>
+
+<script>
+
+  $( "#search_maint" ).on('click', function() {
+    if ($( "#search_maint" ).is(':checked') ) {
+      $( ".maintenance_block" ).removeClass( "hide" ).addClass( "show" );
+    }
+    else {
+      $( ".maintenance_block" ).removeClass( "show" ).addClass( "hide" );
+      $( "#search_maintMin" ).val( "" );
+      $( "#search_maintMax" ).val( "" );
+    };
+  });
+
+  $( "#search_catering" ).on('click', function() {
+    if ($( "#search_catering" ).is(':checked') ) {
+      $( ".catering_block" ).removeClass( "hide" ).addClass( "show" );
+      $( ".fill_in" ).removeClass( "show" ).addClass( "hide" );      
+    }
+    else {
+      $( ".catering_block" ).removeClass( "show" ).addClass( "hide" );
+      $( ".fill_in" ).removeClass( "hide" ).addClass( "show" );
+      $( "#search_caterMin" ).val( "" );
+      $( "#search_caterMax" ).val( "" );
+    };
+  });
+  
+  $(function(){ $(document).foundation(); });
+
+</script>

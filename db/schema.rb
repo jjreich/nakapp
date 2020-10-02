@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201002171534) do
+ActiveRecord::Schema.define(version: 20201002212956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,10 +60,10 @@ ActiveRecord::Schema.define(version: 20201002171534) do
 
   create_table "debriefs", force: :cascade do |t|
     t.string "flightNumber"
-    t.integer "preparationRating"
+    t.integer "preparation_rating"
     t.text "preparationComments"
     t.boolean "cateringStatus"
-    t.integer "cateringRating"
+    t.integer "catering_rating"
     t.text "cateringComments"
     t.integer "clientArrivalTiming"
     t.string "clientArrivalType"

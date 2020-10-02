@@ -18,13 +18,13 @@ class Debrief < ApplicationRecord
 	  ratingsum = 0
 	  ratingcount = 0
 
-	  if preparationRating.present?
-	  	ratingsum = ratingsum + preparationRating
+	  if preparation_rating.present?
+	  	ratingsum = ratingsum + preparation_rating
 	  	ratingcount = ratingcount + 1
 	  end 
 
-	  if cateringRating.present?
-	  	ratingsum = ratingsum + cateringRating
+	  if catering_rating.present?
+	  	ratingsum = ratingsum + catering_rating
 	  	ratingcount = ratingcount + 1
 	  end
 
