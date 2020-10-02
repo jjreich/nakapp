@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Searches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Fulltextsearch</th>
+      <th>Flightnumber</th>
+      <th>Pic</th>
+      <th>Sic</th>
+      <th>Airfield</th>
+      <th>Revenue</th>
+      <th>Membername</th>
+      <th>Datestart</th>
+      <th>Dateend</th>
+      <th>Prepmin</th>
+      <th>Prepmax</th>
+      <th>Catermin</th>
+      <th>Catermax</th>
+      <th>Depmin</th>
+      <th>Depmax</th>
+      <th>Flightmin</th>
+      <th>Flightmax</th>
+      <th>Arrmin</th>
+      <th>Arrmax</th>
+      <th>Maintmin</th>
+      <th>Maintmax</th>
+      <th>Catering</th>
+      <th>Maint</th>
+      <th>Createdby</th>
+      <th>Hascomments</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @searches.each do |search| %>
+      <tr>
+        <td><%= search.searchType %></td>
+        <td><%= search.fullTextSearch %></td>
+        <td><%= search.flightNumber %></td>
+        <td><%= search.pic %></td>
+        <td><%= search.sic %></td>
+        <td><%= search.airfield %></td>
+        <td><%= search.revenue %></td>
+        <td><%= search.memberName %></td>
+        <td><%= search.dateStart %></td>
+        <td><%= search.dateEnd %></td>
+        <td><%= search.prepMin %></td>
+        <td><%= search.prepMax %></td>
+        <td><%= search.caterMin %></td>
+        <td><%= search.caterMax %></td>
+        <td><%= search.depMin %></td>
+        <td><%= search.depMax %></td>
+        <td><%= search.flightMin %></td>
+        <td><%= search.flightMax %></td>
+        <td><%= search.arrMin %></td>
+        <td><%= search.arrMax %></td>
+        <td><%= search.maintMin %></td>
+        <td><%= search.maintMax %></td>
+        <td><%= search.catering %></td>
+        <td><%= search.maint %></td>
+        <td><%= search.createdBy %></td>
+        <td><%= search.hasComments %></td>
+        <td><%= link_to 'Show', search %></td>
+        <td><%= link_to 'Edit', edit_search_path(search) %></td>
+        <td><%= link_to 'Destroy', search, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Search', new_search_path %>

@@ -1,0 +1,40 @@
+
+<%= simple_form_for(@search, :html=>{:remote => true}) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.hidden_field :searchType %>
+    <%= f.input :fullTextSearch, label: 'Text Search' %>
+    <%= f.input :flightNumber, label: 'Flight Number' %>
+    <%= f.input :pic, collection: @pilots, label_method: :fullName, label: 'PIC' %>
+    <%= f.input :sic, collection: @pilots, label_method: :fullName, label: 'SIC' %>
+    <%= f.input :airfield, label: 'Airfield'  %>
+    <%= f.input :revenue, label: 'Was it a Revenue Flight?' %>
+    <%= f.hidden_field :memberName, label: 'Member Name' %>
+    <%= f.hidden_field :dateStart, label: 'Start Date' %>
+    <%= f.hidden_field :dateEnd, label: 'End Date' %>
+    <%= f.hidden_field :prepMin, collection: 1..5, label: 'Min' %>
+    <%= f.hidden_field :prepMax, collection: 1..5, label: 'Max' %>
+    <%= f.hidden_field :catering, label: 'Catering?' %>
+    <%= f.hidden_field :caterMin, collection: 1..5, label: 'Min' %>
+    <%= f.hidden_field :caterMax, collection: 1..5, label: 'Max' %>
+    <%= f.hidden_field :depMin, collection: 1..5, label: 'Min' %>
+    <%= f.hidden_field :depMax, collection: 1..5, label: 'Max' %>
+    <%= f.hidden_field :flightMin, collection: 1..5, label: 'Min' %>
+    <%= f.hidden_field :flightMax, collection: 1..5, label: 'Max' %>
+    <%= f.hidden_field :arrMin, collection: 1..5, label: 'Min' %>
+    <%= f.hidden_field :arrMax, collection: 1..5, label: 'Max' %>
+    <%= f.hidden_field :maint, label: 'Maint?' %>
+    <%= f.hidden_field :maintMin, collection: 1..5, label: 'Min' %>
+    <%= f.hidden_field :maintMax, collection: 1..5, label: 'Max' %>
+
+    
+    <%= f.input :createdBy, collection: @pilots, label_method: :fullName, label: 'Created by?' %>
+    <%= f.hidden_field :hasComments, label: 'Has Comments?'  %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Search" %>
+  </div>
+<% end %>

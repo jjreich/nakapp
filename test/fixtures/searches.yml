@@ -1,0 +1,57 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 1
+  fullTextSearch: MyString
+  flightNumber: MyString
+  PIC: 1
+  SIC: 1
+  airfield: MyString
+  revenue: false
+  memberName: MyString
+  dateStart: 2020-10-01
+  dateEnd: 2020-10-01
+  prepMin: 1
+  prepMax: 1
+  caterMin: 1
+  caterMax: 1
+  depMin: 1
+  depMax: 1
+  flightMin: 1
+  flightMax: 1
+  arrMin: 1
+  arrMax: 1
+  maintMin: 1
+  maintMax: 1
+  catering: false
+  maint: false
+  createdBy: 1
+  hasComments: false
+
+two:
+  type: 1
+  fullTextSearch: MyString
+  flightNumber: MyString
+  PIC: 1
+  SIC: 1
+  airfield: MyString
+  revenue: false
+  memberName: MyString
+  dateStart: 2020-10-01
+  dateEnd: 2020-10-01
+  prepMin: 1
+  prepMax: 1
+  caterMin: 1
+  caterMax: 1
+  depMin: 1
+  depMax: 1
+  flightMin: 1
+  flightMax: 1
+  arrMin: 1
+  arrMax: 1
+  maintMin: 1
+  maintMax: 1
+  catering: false
+  maint: false
+  createdBy: 1
+  hasComments: false
