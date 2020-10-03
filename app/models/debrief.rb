@@ -49,7 +49,11 @@ class Debrief < ApplicationRecord
 	  end
 
 	  ratingsum = ratingsum.to_f
-	  overall_rating = (ratingsum / ratingcount)
+	  if ratingcount == 0
+	  	overall_rating == 0.0
+	  else
+	  	overall_rating = (ratingsum / ratingcount)
+	  end
 
 	end
 

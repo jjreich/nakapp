@@ -18,6 +18,8 @@ class Search < ApplicationRecord
 		debriefs = debriefs.where(flights: {sic: sic}).references(:flights) if sic.present?
 		debriefs = debriefs.where(flights: {departureAirfield: airfield}).or(debriefs.where(flights: {arrivalAirfield: airfield})).references(:flights) if airfield.present?
 		debriefs = debriefs.where(flights: {revenue_test: true}).references(:flights) if revenue.present?
+		debriefs = debriefs.select{|k| k.overall_rating >= overallmin} if overallmin.present?
+		debriefs = debriefs.select{|k| k.overall_rating <= overallmax} if overallmax.present?
 		debriefs = debriefs.where("preparation_rating >= ?", prepMin) if prepMin.present?
 		debriefs = debriefs.where("preparation_rating <= ?", prepMax) if prepMax.present?
 		debriefs = debriefs.where(cateringStatus: true) if catering == true

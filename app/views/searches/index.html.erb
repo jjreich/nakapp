@@ -6,6 +6,8 @@
   <thead>
     <tr>
       <th>Type</th>
+      <th>Save Search</th>
+      <th>Save Search Name</th>
       <th>Fulltextsearch</th>
       <th>Flightnumber</th>
       <th>Pic</th>
@@ -15,6 +17,8 @@
       <th>Membername</th>
       <th>Datestart</th>
       <th>Dateend</th>
+      <th>Overallmin</th>
+      <th>Overallmax</th>     
       <th>Prepmin</th>
       <th>Prepmax</th>
       <th>Catermin</th>
@@ -39,6 +43,8 @@
     <% @searches.each do |search| %>
       <tr>
         <td><%= search.searchType %></td>
+        <td><%= search.save_search %></td>
+        <td><%= search.save_search_name %></td>        
         <td><%= search.fullTextSearch %></td>
         <td><%= search.flightNumber %></td>
         <td><%= search.pic %></td>
@@ -48,6 +54,8 @@
         <td><%= search.memberName %></td>
         <td><%= search.dateStart %></td>
         <td><%= search.dateEnd %></td>
+        <td><%= search.overallmin %></td>
+        <td><%= search.overallmax %></td>
         <td><%= search.prepMin %></td>
         <td><%= search.prepMax %></td>
         <td><%= search.caterMin %></td>

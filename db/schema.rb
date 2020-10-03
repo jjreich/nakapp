@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201002212956) do
+ActiveRecord::Schema.define(version: 20201003013952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -173,6 +173,10 @@ ActiveRecord::Schema.define(version: 20201002212956) do
     t.boolean "hasComments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "save_search"
+    t.string "save_search_name"
+    t.integer "overallmin"
+    t.integer "overallmax"
   end
 
   create_table "users", force: :cascade do |t|

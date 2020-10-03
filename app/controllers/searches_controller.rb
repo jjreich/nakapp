@@ -72,6 +72,6 @@ class SearchesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def search_params
-      params.require(:search).permit(:searchType, :fullTextSearch, :flightNumber, :pic, :sic, :airfield, :revenue, :memberName, :dateStart, :dateEnd, :prepMin, :prepMax, :caterMin, :caterMax, :depMin, :depMax, :flightMin, :flightMax, :arrMin, :arrMax, :maintMin, :maintMax, :catering, :maint, :createdBy, :hasComments)
+      params.require(:search).permit(:searchType, :fullTextSearch, :flightNumber, :pic, :sic, :airfield, :revenue, :memberName, :dateStart, :dateEnd, :prepMin, :prepMax, :caterMin, :caterMax, :depMin, :depMax, :flightMin, :flightMax, :arrMin, :arrMax, :maintMin, :maintMax, :catering, :maint, :createdBy, :hasComments, :save_search, :save_search_name, :overallmin, :overallmax)
     end
 end

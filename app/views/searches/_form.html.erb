@@ -38,6 +38,15 @@
         <%= f.hidden_field :dateStart, label: 'Start Date' %>
         <%= f.hidden_field :dateEnd, label: 'End Date' %>
       <div class="cell small-6 debrief_form_only">
+        <h3>Overall Ratings</h3>
+      </div>
+      <div class="cell small-3 debrief_form_only">
+        <%= f.input :overallmin, collection: 1..5, label: 'Min' %>
+      </div>
+      <div class="cell small-3 debrief_form_only">
+        <%= f.input :overallmax, collection: 1..5, label: 'Max' %>
+      </div>
+      <div class="cell small-6 debrief_form_only">
         <h3>Preparation / Planning Ratings</h3>
       </div>
       <div class="cell small-3 debrief_form_only">
