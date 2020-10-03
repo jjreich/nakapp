@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :viewed_comments
   has_many :viewed_debriefs
+  has_many :searches
 
   def fullName
     firstName + " " + lastName

@@ -2,7 +2,9 @@
   <div class="mobile-app-icon-bar footer">
     <div class="grid-x grid-padding-x">
       <div class="cell small-4 text-center">
-        
+        <%= link_to searches_path(:searchType => "2"), remote: true do %>
+          <button><i class="fa fa-archive" aria-hidden="true" data-open="myModal"></i><br><span>Saved Searches</span></button>
+        <% end %>
       </div>
       <div class="cell small-4 text-center">
         <%= link_to new_flight_path, :id => "add_flight_link", remote: true do %>

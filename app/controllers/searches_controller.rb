@@ -1,10 +1,13 @@
 class SearchesController < ApplicationController
   before_action :set_search, only: [:show, :edit, :update, :destroy]
 
+  respond_to :html, :js
+
   # GET /searches
   # GET /searches.json
   def index
-    @searches = Search.all
+    @searches = Search.where(save_search: true, user_id: current_user.id, searchType: params[:searchType])
+    @search_type = params[:searchType]
   end
 
   # GET /searches/1
@@ -15,12 +18,13 @@ class SearchesController < ApplicationController
 
   # GET /searches/new
   def new
-    @search = Search.new(:searchType => params[:searchType])
+    @search = Search.new(:searchType => params[:searchType], :user_id => current_user.id)
     @pilots = User.pilots.all
   end
 
   # GET /searches/1/edit
   def edit
+    @pilots = User.pilots.all
   end
 
   # POST /searches
@@ -45,6 +49,7 @@ class SearchesController < ApplicationController
   def update
     respond_to do |format|
       if @search.update(search_params)
+        format.js
         format.html { redirect_to @search, notice: 'Search was successfully updated.' }
         format.json { render :show, status: :ok, location: @search }
       else
@@ -58,7 +63,10 @@ class SearchesController < ApplicationController
   # DELETE /searches/1.json
   def destroy
     @search.destroy
+    @searches = Search.where(save_search: true, user_id: current_user.id, searchType: params[:searchType])
+    @search_type = params[:searchType]
     respond_to do |format|
+      format.js
       format.html { redirect_to searches_url, notice: 'Search was successfully destroyed.' }
       format.json { head :no_content }
     end
@@ -72,6 +80,6 @@ class SearchesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def search_params
-      params.require(:search).permit(:searchType, :fullTextSearch, :flightNumber, :pic, :sic, :airfield, :revenue, :memberName, :dateStart, :dateEnd, :prepMin, :prepMax, :caterMin, :caterMax, :depMin, :depMax, :flightMin, :flightMax, :arrMin, :arrMax, :maintMin, :maintMax, :catering, :maint, :createdBy, :hasComments, :save_search, :save_search_name, :overallmin, :overallmax)
+      params.require(:search).permit(:searchType, :fullTextSearch, :flightNumber, :pic, :sic, :airfield, :revenue, :memberName, :dateStart, :dateEnd, :prepMin, :prepMax, :caterMin, :caterMax, :depMin, :depMax, :flightMin, :flightMax, :arrMin, :arrMax, :maintMin, :maintMax, :catering, :maint, :createdBy, :hasComments, :save_search, :save_search_name, :overallmin, :overallmax, :user_id)
     end
 end

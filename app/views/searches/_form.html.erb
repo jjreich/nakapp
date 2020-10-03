@@ -6,6 +6,7 @@
   <div class="form-inputs">
     <div class="grid-x grid-padding-x">
       <div class="cell small-12 large-6 debrief_form_only">
+        <%= f.hidden_field :user_id %>
         <%= f.hidden_field :searchType %>
         <%= f.input :fullTextSearch, label: 'Text Search' %>
       </div>
@@ -55,11 +56,8 @@
       <div class="cell small-3 debrief_form_only">
         <%= f.input :prepMax, collection: 1..5, label: 'Max' %>
       </div>
-      <div class="cell small-6 debrief_form_only">
+      <div class="cell small-12 debrief_form_only" id="catering_test">
         <%= f.input :catering, label: 'Catering?' %>
-      </div>
-      <div class="cell small-6 fill_in debrief_form_only">
-
       </div>
       <div class="cell small-3 hide catering_block debrief_form_only">
         <%= f.input :caterMin, collection: 1..5, label: 'Min' %>
@@ -94,7 +92,7 @@
       <div class="cell small-3 debrief_form_only">
         <%= f.input :depMax, collection: 1..5, label: 'Max' %>
       </div> 
-      <div class="cell small-6 debrief_form_only">
+      <div class="cell small-12 debrief_form_only" id="maintenance_test">
         <%= f.input :maint, label: 'Maintenance?' %>
       </div>
       <div class="cell small-3 hide maintenance_block debrief_form_only">
@@ -102,9 +100,18 @@
       </div>
       <div class="cell small-3 hide maintenance_block debrief_form_only">
         <%= f.input :maintMax, collection: 1..5, label: 'Max' %>
-      </div>  
+      </div>
 
         <%= f.hidden_field :hasComments, label: 'Has Comments?'  %>
+
+      <% if current_user.has_role? :admin %>
+        <div class="cell small-6">
+          <%= f.input :save_search, label: "Save Search?" %>
+        </div>
+        <div class="cell small-6">
+          <%= f.input :save_search_name, label: "Search Name" %>
+        </div>
+      <% end %>
     
     </div>
   </div>
@@ -119,9 +126,11 @@
   $( "#search_maint" ).on('click', function() {
     if ($( "#search_maint" ).is(':checked') ) {
       $( ".maintenance_block" ).removeClass( "hide" ).addClass( "show" );
+      $( "#maintenance_test" ).removeClass( "small-12" ).addClass( "small-6" );      
     }
     else {
       $( ".maintenance_block" ).removeClass( "show" ).addClass( "hide" );
+      $( "#maintenance_test" ).removeClass( "small-6" ).addClass( "small-12" );
       $( "#search_maintMin" ).val( "" );
       $( "#search_maintMax" ).val( "" );
     };
@@ -130,11 +139,11 @@
   $( "#search_catering" ).on('click', function() {
     if ($( "#search_catering" ).is(':checked') ) {
       $( ".catering_block" ).removeClass( "hide" ).addClass( "show" );
-      $( ".fill_in" ).removeClass( "show" ).addClass( "hide" );      
+      $( "#catering_test" ).removeClass( "small-12" ).addClass( "small-6" );
     }
     else {
       $( ".catering_block" ).removeClass( "show" ).addClass( "hide" );
-      $( ".fill_in" ).removeClass( "hide" ).addClass( "show" );
+      $( "#catering_test" ).removeClass( "small-6" ).addClass( "small-12" );
       $( "#search_caterMin" ).val( "" );
       $( "#search_caterMax" ).val( "" );
     };

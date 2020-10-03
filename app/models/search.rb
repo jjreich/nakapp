@@ -1,5 +1,7 @@
 class Search < ApplicationRecord
 
+	belongs_to :user
+
 	def debriefs
 		@debriefs ||= find_debriefs
 	end

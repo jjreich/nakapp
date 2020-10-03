@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<button class="close-button" data-close aria-label="Close modal" type="button">
+  <span aria-hidden="true">&times;</span>
+</button>
+
+<div class="grid-x grid-padding-x">
+  <div class="cell small-12 medium-6 text-left">
+    <% if @search_type == "1" %>
+      <h1>Saved Debrief Searches</h1>
+    <% elsif @search_type == "2" %>
+      <h1>Saved Flight Searches</h1>
+    <% end %>
+  </div>
+
+  <div class="cell medium-6 text-right show-for-medium">
+    <%= link_to 'Add New Search', new_search_path, remote: true, class: "hollow button" %>
+  </div>
+</div>
+<div class="grid-x grid-padding-x">
+  <% @searches.each do |search| %>
+    <div class="cell small-12 text-left">
+      <h4>
+        <%= link_to search.save_search_name, search, remote: true %> 
+        <%= link_to edit_search_path(search), :class => "", remote: true, data: {:"reveal-id" => "myModal"} do %>
+            <%= image_tag("edit24.png", width: "16", :alt => "edit") %>
+        <% end %> &nbsp
+        <%= link_to search_path(:id => search.id, :searchType => search.searchType), method: :delete, remote: true, data: { confirm: 'Are you sure?' } do %>
+            <%= image_tag("trash_recyclebin.png", width: "16", :alt => "edit") %>
+        <% end %> &nbsp
+      </h4>
+    </div>
+  <% end %>
+</div>
+<br>

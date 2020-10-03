@@ -3,7 +3,11 @@
 
   <div class="grid-x grid-padding-x">
     <div class="cell small-12 text-left">
-      <h1>Debrief Search Results</h1>
+      <% if @search.save_search_name.present? %>
+        <h1><%=@search.save_search_name %></h1>
+      <% else %>
+        <h1>Debrief Search Results</h1>
+      <% end %>
     </div>
   </div>
 
@@ -61,7 +65,11 @@
 
   <div class="grid-x grid-padding-x">
     <div class="cell small-12 text-left">
-      <h1>Flight Search Results</h1>
+      <% if @search.save_search_name.present? %>
+        <h1><%=@search.save_search_name %></h1>
+      <% else %>
+        <h1>Flight Search Results</h1>
+      <% end %>
     </div>
   </div>
 
