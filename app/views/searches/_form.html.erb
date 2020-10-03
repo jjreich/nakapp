@@ -5,18 +5,21 @@
 
   <div class="form-inputs">
     <div class="grid-x grid-padding-x">
-      <div class="cell small-12 large-6">
+      <div class="cell small-12 large-6 debrief_form_only">
         <%= f.hidden_field :searchType %>
         <%= f.input :fullTextSearch, label: 'Text Search' %>
       </div>
-      <div class="cell small-12 large-6">
+      <div class="cell small-12 large-6 debrief_form_only">
         Advanced Search
       </div>
       <br>
       <div class="cell small-6 large-3">
         <%= f.input :flightNumber, label: 'Flight Number' %>
       </div>
-      <div class="cell small-6 large-3">
+      <div class="cell small-6 fill_in flight_form_only">
+
+      </div>
+      <div class="cell small-6 large-3 debrief_form_only">
         <%= f.input :createdBy, collection: @pilots, label_method: :fullName, label: 'Created by?' %>
       </div>
       <div class="cell small-6 large-3">
@@ -34,61 +37,61 @@
         <%= f.hidden_field :memberName, label: 'Member Name' %>
         <%= f.hidden_field :dateStart, label: 'Start Date' %>
         <%= f.hidden_field :dateEnd, label: 'End Date' %>
-      <div class="cell small-6">
+      <div class="cell small-6 debrief_form_only">
         <h3>Preparation / Planning Ratings</h3>
       </div>
-      <div class="cell small-3">
+      <div class="cell small-3 debrief_form_only">
         <%= f.input :prepMin, collection: 1..5, label: 'Min' %>
       </div>
-      <div class="cell small-3">
+      <div class="cell small-3 debrief_form_only">
         <%= f.input :prepMax, collection: 1..5, label: 'Max' %>
       </div>
-      <div class="cell small-6">
+      <div class="cell small-6 debrief_form_only">
         <%= f.input :catering, label: 'Catering?' %>
       </div>
-      <div class="cell small-6 fill_in">
+      <div class="cell small-6 fill_in debrief_form_only">
 
       </div>
-      <div class="cell small-3 hide catering_block">
+      <div class="cell small-3 hide catering_block debrief_form_only">
         <%= f.input :caterMin, collection: 1..5, label: 'Min' %>
       </div>
-      <div class="cell small-3 hide catering_block">
+      <div class="cell small-3 hide catering_block debrief_form_only">
         <%= f.input :caterMax, collection: 1..5, label: 'Max' %>
       </div>
-      <div class="cell small-6">
+      <div class="cell small-6 debrief_form_only">
         <h3>Client Arrival Ratings</h3>
       </div>
-      <div class="cell small-3">
+      <div class="cell small-3 debrief_form_only">
         <%= f.input :arrMin, collection: 1..5, label: 'Min' %>
       </div>
-      <div class="cell small-3">
+      <div class="cell small-3 debrief_form_only">
         <%= f.input :arrMax, collection: 1..5, label: 'Max' %>
       </div>        
-      <div class="cell small-6">
+      <div class="cell small-6 debrief_form_only">
         <h3>In-Flight Ratings</h3>
       </div>
-      <div class="cell small-3">
+      <div class="cell small-3 debrief_form_only">
         <%= f.input :flightMin, collection: 1..5, label: 'Min' %>
       </div>
-      <div class="cell small-3">
+      <div class="cell small-3 debrief_form_only">
         <%= f.input :flightMax, collection: 1..5, label: 'Max' %>
       </div>        
-      <div class="cell small-6">
+      <div class="cell small-6 debrief_form_only">
         <h3>Client Departure Ratings</h3>
       </div>
-      <div class="cell small-3">
+      <div class="cell small-3 debrief_form_only">
         <%= f.input :depMin, collection: 1..5, label: 'Min' %>
       </div>
-      <div class="cell small-3">
+      <div class="cell small-3 debrief_form_only">
         <%= f.input :depMax, collection: 1..5, label: 'Max' %>
       </div> 
-      <div class="cell small-6">
+      <div class="cell small-6 debrief_form_only">
         <%= f.input :maint, label: 'Maintenance?' %>
       </div>
-      <div class="cell small-3 hide maintenance_block">
+      <div class="cell small-3 hide maintenance_block debrief_form_only">
         <%= f.input :maintMin, collection: 1..5, label: 'Min' %>
       </div>
-      <div class="cell small-3 hide maintenance_block">
+      <div class="cell small-3 hide maintenance_block debrief_form_only">
         <%= f.input :maintMax, collection: 1..5, label: 'Max' %>
       </div>  
 
@@ -125,6 +128,17 @@
       $( ".fill_in" ).removeClass( "hide" ).addClass( "show" );
       $( "#search_caterMin" ).val( "" );
       $( "#search_caterMax" ).val( "" );
+    };
+  });
+
+  $(document).ready(function() {
+    var searchTypeVal = $("#search_searchType").val();
+    if (searchTypeVal === "2") {
+      $( ".debrief_form_only" ).addClass( "hide" );
+      $( ".flight_form_only" ).removeClass( "hide" );
+    }
+    else if (searchTypeVal === "1") {
+      $( ".flight_form_only" ).addClass( "hide" );
     };
   });
   

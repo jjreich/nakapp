@@ -4,6 +4,10 @@ class Search < ApplicationRecord
 		@debriefs ||= find_debriefs
 	end
 
+	def flights
+		@flights ||= find_flights
+	end
+
 	private
 
 	def find_debriefs
@@ -30,5 +34,15 @@ class Search < ApplicationRecord
 		debriefs = debriefs.where("maintenance_rating <= ?", maintMax) if maintMax.present?
 		debriefs = debriefs.where(user_id: createdBy) if createdBy.present?
 		debriefs
+	end
+
+	def find_flights
+		flights = Flight.all
+		flights = flights.where(flightNumber: flightNumber) if flightNumber.present?
+		flights = flights.where(pic: pic) if pic.present?
+		flights = flights.where(sic: sic) if sic.present?
+		flights = flights.where(departureAirfield: airfield).or(flights.where(arrivalAirfield: airfield)) if airfield.present?
+		flights = flights.where(revenue_test: true) if revenue.present?
+		flights
 	end
 end

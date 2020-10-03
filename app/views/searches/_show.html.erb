@@ -1,54 +1,85 @@
-<% @debriefs = @search.debriefs %>
+<% if @search.searchType == 1 %>
+  <% @debriefs = @search.debriefs %>
 
-<div class="grid-x grid-padding-x">
-  <div class="cell small-6 text-left">
-    <h1>Search Results</h1>
-  </div>
-</div>
-
-<div id="debriefs">
-  <% @debriefs.each do |debrief| %>
-    <% commentCount = Comment.where(:debrief_id => debrief.id).count %>
-    <% commentColor = "gray" %>
-    <div class="grid-x grid-padding-x">
-      <div class="cell small-12">
-        <h4>
-          <% if debrief.star_rating_value.present? %>
-            <% if debrief.star_rating_value[0] == 1 %>
-              <% starColorPrep = "darkred" %>
-            <% elsif debrief.star_rating_value[0] == 2 %>
-              <% starColorPrep = "red" %>
-            <% elsif debrief.star_rating_value[0] == 3 %>
-              <% starColorPrep = "orange" %>
-            <% elsif debrief.star_rating_value[0] == 4 %>
-              <% starColorPrep = "green" %>
-            <% elsif debrief.star_rating_value[0] == 5 %>
-              <% starColorPrep = "darkgreen" %>  
-            <% end %>
-            <i style="color:<%= starColorPrep %>;" class="fa fa-star"></i>
-          <% end %>
-          <% flight = Flight.find(debrief.flight_id) %>
-          <% flightNumber = flight.flightNumber %>
-          <% flightLink = "Flight #" + flightNumber + " from " + flight.departureAirfield + " to " + flight.arrivalAirfield %>
-          <%= link_to flightLink, debrief, :remote => true %>
-          <% if commentCount > 0 %>
-            <% lastComment = debrief.comments.order(:created_at).last %>
-            <% if debrief.viewed_debriefs.where(:user_id => current_user.id).present? %>
-              <% lastDebriefView = debrief.viewed_debriefs.where(:user_id => current_user.id).order(:created_at).last %>
-              <% if lastDebriefView.created_at < lastComment.created_at %>
-                  <% commentColor = "red" %>
-              <% end %>
-            <% else %>
-              <% commentColor = "red" %> 
-            <% end %> 
-            <div class="comments_container" style="color:<%= commentColor %>;"><%= commentCount %></div>&nbsp&nbsp
-          <% end %>
-        </h4>
-      </div>
+  <div class="grid-x grid-padding-x">
+    <div class="cell small-12 text-left">
+      <h1>Debrief Search Results</h1>
     </div>
-  <% end %>
-</div>
+  </div>
 
+  <div id="debriefs">
+    <% @debriefs.each do |debrief| %>
+      <% commentCount = Comment.where(:debrief_id => debrief.id).count %>
+      <% commentColor = "gray" %>
+      <div class="grid-x grid-padding-x">
+        <div class="cell small-12">
+          <h4>
+            <% if debrief.star_rating_value.present? %>
+              <% if debrief.star_rating_value[0] == 1 %>
+                <% starColorPrep = "darkred" %>
+              <% elsif debrief.star_rating_value[0] == 2 %>
+                <% starColorPrep = "red" %>
+              <% elsif debrief.star_rating_value[0] == 3 %>
+                <% starColorPrep = "orange" %>
+              <% elsif debrief.star_rating_value[0] == 4 %>
+                <% starColorPrep = "green" %>
+              <% elsif debrief.star_rating_value[0] == 5 %>
+                <% starColorPrep = "darkgreen" %>  
+              <% end %>
+              <i style="color:<%= starColorPrep %>;" class="fa fa-star"></i>
+            <% end %>
+            <% flight = Flight.find(debrief.flight_id) %>
+            <% flightNumber = flight.flightNumber %>
+            <% flightLink = "Flight #" + flightNumber + " from " + flight.departureAirfield + " to " + flight.arrivalAirfield %>
+            <%= link_to flightLink, debrief, :remote => true %>
+            <% if commentCount > 0 %>
+              <% lastComment = debrief.comments.order(:created_at).last %>
+              <% if debrief.viewed_debriefs.where(:user_id => current_user.id).present? %>
+                <% lastDebriefView = debrief.viewed_debriefs.where(:user_id => current_user.id).order(:created_at).last %>
+                <% if lastDebriefView.created_at < lastComment.created_at %>
+                    <% commentColor = "red" %>
+                <% end %>
+              <% else %>
+                <% commentColor = "red" %> 
+              <% end %> 
+              <div class="comments_container" style="color:<%= commentColor %>;"><%= commentCount %></div>&nbsp&nbsp
+            <% end %>
+          </h4>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% elsif @search.searchType == 2 %>
+  <% @flights = @search.flights %>
+
+  <div class="grid-x grid-padding-x">
+    <div class="cell small-12 text-left">
+      <h1>Flight Search Results</h1>
+    </div>
+  </div>
+
+  <div id="flights">
+
+    <% @flights.each do |flight| %>
+      <div class="grid-x grid-padding-x">
+        <div class="cell small-12">
+          <h4>
+            <% flightDescription = flight.dateOfFlight.strftime ("%m/%d/%y") + " - " + flight.flightNumber + " from " + flight.departureAirfield + " to " + flight.arrivalAirfield %>
+            <% if flight.revenue_test == true %>
+              <% flightDescription = flightDescription + " with " + flight.client %>
+            <% end %>
+            <%= link_to flightDescription, flight, :remote => true %>
+            <%= link_to edit_flight_path(flight), :class => "", remote: true, data: {:"reveal-id" => "myModal"} do %>
+              <%= image_tag("edit24.png", width: "16", :alt => "edit") %>
+            <% end %> &nbsp
+          </h4>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+
+<% end %>
 
 <br>
 <br>

@@ -2,4 +2,10 @@
   <span aria-hidden="true">&times;</span>
 </button>
 
+<% if @search.searchType == 1 %>
+	<h5>Debrief Search Engine</h5>
+<% elsif @search.searchType == 2 %>
+	<h5>Flight Search Engine</h5>
+<% end %>
+
 <%= render 'form', search: @search %>

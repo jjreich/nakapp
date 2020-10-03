@@ -10,7 +10,9 @@
         <% end %>
       </div>
       <div class="cell small-4 text-center">
-        <button><i class="fa fa-search" aria-hidden="true"></i><br><span>Search</span></button>
+        <%= link_to new_search_path(:searchType => "2"), :id => "add_search_link", remote: true do %>
+          <button><i class="fa fa-search" aria-hidden="true" data-open="myModal"></i><br><span>Search</span></button>
+        <% end %>
       </div>
     </div>    
   </div>
